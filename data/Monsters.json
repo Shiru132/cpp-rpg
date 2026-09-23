@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Zombie",
+        "hp": 500,
+        "damage": 10,
+        "defense": 5
+    },
+    {
+        "name": "Orc",
+        "hp": 1000,
+        "damage": 25,
+        "defense": 15
+    }
+]
