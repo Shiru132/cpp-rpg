@@ -1,7 +1,7 @@
 #include "../include/Character.h"
 #include <iostream>
 
-Character::Character(std::string name, int hp, int defense, int damage)
+Character::Character(const std::string& name, int hp, int defense, int damage)
 {
     this->name = name;
     this->hp = hp;

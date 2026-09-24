@@ -12,7 +12,7 @@ protected:
     int defense;
 
 public:
-    Monster(std::string name, int hp, int damage, int defense);
+    Monster(const std::string& name, int hp, int damage, int defense);
    
     void monsterHeal();
     int checkMonsterHp();

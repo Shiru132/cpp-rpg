@@ -15,7 +15,7 @@ protected:
     int checker;
 
 public:
-    Character(std::string name, int hp, int defense, int damage);
+    Character(const std::string& name, int hp, int defense, int damage);
 
     void checkMaxHP();
     void receiveDamage(int amount);

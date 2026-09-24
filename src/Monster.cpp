@@ -1,7 +1,7 @@
 #include "../include/Monster.h"
 #include <iostream>
 
-Monster::Monster(std::string name, int hp, int damage, int defense){
+Monster::Monster(const std::string& name, int hp, int damage, int defense){
      
         this->name = name;
         this->hp = hp;
