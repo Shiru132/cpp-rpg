@@ -1,5 +1,5 @@
-#ifndef CHARACTER_H
-#define CHARACTER_H
+#ifndef MONSTER_H
+#define MONSTER_H
 #include <string>
 
 class Monster
@@ -15,7 +15,13 @@ public:
     Monster(const std::string& name, int hp, int damage, int defense);
    
     void monsterHeal();
-    int checkMonsterHp();
+    int checkMonsterHp() const;
+    void receiveBasicAttackDmg(int damage);
+    void receiveSkillAttackDmg(int damage);
+    void showMonsterInfo() const;
+    int getDamage() const{ 
+        return damage;
+    }
 };
 
 #endif
