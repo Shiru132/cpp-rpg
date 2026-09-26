@@ -8,33 +8,35 @@ Mage::Mage(const std::string &name, int hp, int defense, int damage)
 {
 }
 
-void Mage::baseAttack(Monster*cel){
-    std::cout << "Wykonujesz atak z kosturu, potwor dostal: " << damage * 3 << " obrazen" << std::endl;
-    cel->receiveBasicAttackDmg(damage);
-
-}
-void Mage::skillAttack(Monster*cel){
-    std::cout << "Wykonujesz atak blyskawica i potwor otrzymuje: " << damage * 5 << " obrazen" << std::endl;
-    cel->receiveSkillAttackDmg(damage);
-
-}
-
-void Mage::heal() 
+void Mage::baseAttack(Monster *cel)
 {
-        std::cout << "Hp przed leczeniem: " << hp << std::endl;
+    
+    std::cout << "Wykonujesz atak z kosturu, potwor dostal: " << checkFinalAmount(cel)*3 << " obrazen" << std::endl;
+    cel->receiveBasicAttackDmg(checkFinalAmount(cel)*3);
+}
+void Mage::skillAttack(Monster *cel)
+{
 
-        hp += 100;
-        if (hp > maxHp)
-        {
-            hp = maxHp;
-        }
-        std::cout << "Teraz twoje hp wynosi:" << hp << " Hp" << std::endl;
-    }
+    std::cout << "Wykonujesz atak blyskawica i potwor otrzymuje: " << checkFinalAmount(cel)*5 << " obrazen" << std::endl;
+    cel->receiveSkillAttackDmg(checkFinalAmount(cel)*5);
+}
 
-void Mage::showInfo() 
+void Mage::heal()
+{
+    std::cout << "Hp przed leczeniem: " << hp << std::endl;
+
+    hp += 100;
+    if (hp > maxHp)
     {
-        std::cout << "Nick: " << name << std::endl
-                  << "Hp: " << hp << std::endl
-                  << "Def: " << defense << std::endl
-                  << "Dmg: " << damage << std::endl;
+        hp = maxHp;
     }
+    std::cout << "Teraz twoje hp wynosi:" << hp << " Hp" << std::endl;
+}
+
+void Mage::showInfo()
+{
+    std::cout << "Nick: " << name << std::endl
+              << "Hp: " << hp << std::endl
+              << "Def: " << defense << std::endl
+              << "Dmg: " << damage << std::endl;
+}

@@ -10,9 +10,9 @@ protected:
     int hp;
     int damage;
     int defense;
-    int lvl;
+    int lvl; //zrób mój przyszły ja z tym kiedyś coś sensownego
     int maxHp = 2100;
-    int checker;
+    
 
 public:
     Character(const std::string& name, int hp, int defense, int damage);
@@ -20,6 +20,9 @@ public:
     void checkMaxHP();
     void receiveDamage(int amount);
     int checkHeroHp();
+    int checkFinalAmount(Monster* cel);
+
+    
 
     virtual void showInfo() = 0;
     virtual void baseAttack(Monster *cel) = 0;

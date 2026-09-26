@@ -24,30 +24,9 @@ void Monster::monsterHeal()
 }
 void Monster::receiveBasicAttackDmg(int damage)
 {
-    {
-        if (this->hp < 0)
-        {
-            this->hp = 0;
-            std::cout << "Pokonałeś potwora!!!" << std::endl;
-            return;
-        }
-
-        std::cout << "Hp potwora: " << this->hp << std::endl;
-        
-        this->hp -= damage * 2;
-        if (this->hp < 0)
-        {
-            this->hp = 0;
-            std::cout << "Pokonałeś potwora!!!" << std::endl;
-        }
-        std::cout << "Pozostałe hp potwora: " << this->hp << std::endl;
-    }
-}
-void Monster::receiveSkillAttackDmg(int damage)
-{
-    {
-        
-        this->hp -= damage * 4;
+    
+    
+        this->hp -= damage;
 
         if (this->hp < 0)
         {
@@ -55,7 +34,21 @@ void Monster::receiveSkillAttackDmg(int damage)
             std::cout << "Pokonałeś potwora!!!";
         }
         std::cout << "Pozostałe hp potwora: " << this->hp << std::endl;
-    }
+}
+void Monster::receiveSkillAttackDmg(int damage)
+{
+    
+      
+        this->hp -= damage;
+        std::cout<< "Test: " << damage;
+
+        if (this->hp < 0)
+        {
+            this->hp = 0;
+            std::cout << "Pokonałeś potwora!!!";
+        }
+        std::cout << "Pozostałe hp potwora: " << this->hp << std::endl;
+    
 }
 int Monster::checkMonsterHp() const
 {

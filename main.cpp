@@ -27,30 +27,30 @@ int main()
     std::string klasa_wybor;
     int klasa;
     std::unique_ptr<Character> hero;
-    int x = 4;
-    int y = 3;
+    bool x = false;
+    bool y = false;
 
     std::cout << "Podaj nick: ";
     std::cin >> nick;
 
-    while (y != 0)
+    while (y != true)
     {
         std::cout << "Wybierz klasę (Warrior,Mage,Archer): ";
         std::cin >> klasa_wybor;
         if (klasa_wybor == "Warrior" || klasa_wybor == "warrior")
         {
             klasa = 1;
-            y = 0;
+            y = true;
         }
         else if (klasa_wybor == "Mage" || klasa_wybor == "mage")
         {
             klasa = 2;
-            y = 0;
+            y = true;
         }
         else if (klasa_wybor == "Archer" || klasa_wybor == "archer")
         {
             klasa = 3;
-            y = 0;
+            y = true;
         }
         else
         {
@@ -69,9 +69,9 @@ int main()
     break;
     case 2:
     {
-        health = 120;
-        defense = 10;
-        damage = 50;
+        health = 1200;
+        defense = 200;
+        damage = 110;
         hero = std::make_unique<Mage>(nick, health, defense, damage);
     }
     break;
@@ -98,7 +98,7 @@ int main()
     std::cout << "8. budowa: " << std::endl;
     std::cout << "9. koniec programu: " << std::endl;
 
-    while (x != 0)
+    while (x != true)
     {
         int chosenOption;
 
@@ -163,7 +163,7 @@ int main()
         break;
         case 9:
         {
-            x = 0;
+            x = true;
         }
         break;
         }

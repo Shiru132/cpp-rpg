@@ -11,13 +11,13 @@ Warrior::Warrior(const std::string &name, int hp, int defense, int damage)
 
 void Warrior::baseAttack(Monster *cel)
 {
-    std::cout << "Wykonujesz atak mieczem, potwor dostal: " << damage * 2 << " obrazen" << std::endl;
-    cel->receiveBasicAttackDmg(damage);
+    std::cout << "Wykonujesz atak mieczem, potwor dostal: " << checkFinalAmount(cel)*2 << " obrazen" << std::endl;
+    cel->receiveBasicAttackDmg(checkFinalAmount(cel)*2);
 }
 void Warrior::skillAttack(Monster *cel)
 {
-    std::cout << "Wykonujesz atak duchowy i potwor otrzymuje: " << damage * 4 << " obrazen" << std::endl;
-    cel->receiveSkillAttackDmg(damage);
+    std::cout << "Wykonujesz atak duchowy i potwor otrzymuje: " << checkFinalAmount(cel)*5 << " obrazen" << std::endl;
+    cel->receiveSkillAttackDmg(checkFinalAmount(cel)*5);
 }
 
 void Warrior::heal()

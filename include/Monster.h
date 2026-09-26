@@ -22,6 +22,9 @@ public:
     int getDamage() const{ 
         return damage;
     }
+    int getDefense()const{
+        return defense;
+    }
 };
 
 #endif

@@ -1,7 +1,8 @@
 #include "../include/Character.h"
 #include <iostream>
+#include "../include/Monster.h"
 
-Character::Character(const std::string& name, int hp, int defense, int damage)
+Character::Character(const std::string &name, int hp, int defense, int damage)
 {
     this->name = name;
     this->hp = hp;
@@ -14,7 +15,6 @@ void Character::checkMaxHP()
     if (hp > maxHp)
     {
         hp = maxHp;
-   
     }
 }
 void Character::receiveDamage(int amount)
@@ -32,6 +32,16 @@ void Character::receiveDamage(int amount)
         std::cout << "Zostales pokonany!" << std::endl;
     }
     std::cout << "Zostalo ci: " << hp << " hp" << std::endl;
+}
+int Character::checkFinalAmount(Monster *cel)
+{
+
+    int finalAmount = ((damage) - cel->getDefense());
+    if (finalAmount < 0)
+    {
+        finalAmount = 0;
+    }
+    return finalAmount;
 }
 int Character::checkHeroHp()
 {

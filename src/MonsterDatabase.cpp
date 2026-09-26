@@ -3,7 +3,8 @@
 
 MonsterDatabase::MonsterDatabase()
 {
-    Monster zombie("zombie", 200, 400, 600);
+    //"name", "hp","dmg","def"
+    Monster zombie("zombie", 1000, 100, 100);
     Monster spider("spider", 250, 100, 600);
 
     listOfMonsters.push_back(zombie);
@@ -18,7 +19,7 @@ MonsterDatabase::MonsterDatabase()
 
 Monster& MonsterDatabase::getMonster(int i)
 {
-    if (i>(listOfMonsters.size())-1){
+    if (i>(listOfMonsters.size())-1 || i<0){
         throw std::runtime_error("Monster not found potato"); 
     }
     
