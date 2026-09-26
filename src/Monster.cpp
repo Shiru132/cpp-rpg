@@ -40,7 +40,7 @@ void Monster::receiveSkillAttackDmg(int damage)
     
       
         this->hp -= damage;
-        std::cout<< "Test: " << damage;
+       
 
         if (this->hp < 0)
         {

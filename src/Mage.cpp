@@ -8,6 +8,7 @@ Mage::Mage(const std::string &name, int hp, int defense, int damage)
 {
 }
 
+
 void Mage::baseAttack(Monster *cel)
 {
     
@@ -26,11 +27,8 @@ void Mage::heal()
     std::cout << "Hp przed leczeniem: " << hp << std::endl;
 
     hp += 100;
-    if (hp > maxHp)
-    {
-        hp = maxHp;
-    }
-    std::cout << "Teraz twoje hp wynosi:" << hp << " Hp" << std::endl;
+    checkMaxHP();
+    std::cout << "Teraz twoje hp wynosi: " << hp << " Hp" << std::endl;
 }
 
 void Mage::showInfo()

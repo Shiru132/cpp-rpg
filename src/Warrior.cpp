@@ -25,10 +25,7 @@ void Warrior::heal()
     std::cout << "Hp przed leczeniem: " << hp << std::endl;
 
     hp += 70;
-    if (hp > maxHp)
-    {
-        hp = maxHp;
-    }
+    checkMaxHP();
     std::cout << "Teraz twoje hp wynosi:" << hp << " Hp" << std::endl;
 }
 

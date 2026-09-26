@@ -23,10 +23,7 @@ void Archer::heal()
         std::cout << "Hp przed leczeniem: " << hp << std::endl;
 
         hp += 100;
-        if (hp > maxHp)
-        {
-            hp = maxHp;
-        }
+        checkMaxHP();
         std::cout << "Teraz twoje hp wynosi:" << hp << " Hp" << std::endl;
     }
 
