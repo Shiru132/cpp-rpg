@@ -1,5 +1,5 @@
 
-// Do przepisania na .cpp i .h | character gotowe, monster po części (osobista notatka)
+
 
 #include <iostream>
 #include <memory>
