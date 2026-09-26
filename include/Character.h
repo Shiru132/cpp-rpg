@@ -20,7 +20,7 @@ public:
     void checkMaxHP();
     void receiveDamage(int amount);
     int checkHeroHp();
-    int checkFinalAmount(Monster* cel);
+    int checkFinalAmountFromMonster(Monster* cel);
 
     
 

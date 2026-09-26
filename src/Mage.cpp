@@ -11,14 +11,14 @@ Mage::Mage(const std::string &name, int hp, int defense, int damage)
 void Mage::baseAttack(Monster *cel)
 {
     
-    std::cout << "Wykonujesz atak z kosturu, potwor dostal: " << checkFinalAmount(cel)*3 << " obrazen" << std::endl;
-    cel->receiveBasicAttackDmg(checkFinalAmount(cel)*3);
+    std::cout << "Wykonujesz atak z kosturu, potwor dostal: " << checkFinalAmountFromMonster(cel)*3 << " obrazen" << std::endl;
+    cel->receiveBasicAttackDmg(checkFinalAmountFromMonster(cel)*3);
 }
 void Mage::skillAttack(Monster *cel)
 {
 
-    std::cout << "Wykonujesz atak blyskawica i potwor otrzymuje: " << checkFinalAmount(cel)*5 << " obrazen" << std::endl;
-    cel->receiveSkillAttackDmg(checkFinalAmount(cel)*5);
+    std::cout << "Wykonujesz atak blyskawica i potwor otrzymuje: " << checkFinalAmountFromMonster(cel)*5 << " obrazen" << std::endl;
+    cel->receiveSkillAttackDmg(checkFinalAmountFromMonster(cel)*5);
 }
 
 void Mage::heal()

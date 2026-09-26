@@ -8,13 +8,13 @@ Archer::Archer(const std::string &name, int hp, int defense, int damage)
 {
 }
 void Archer::baseAttack(Monster*cel){
-    std::cout << "Strzelasz strzala, potwor dostal: " << checkFinalAmount(cel)*2 << " obrazen" << std::endl;
-    cel->receiveBasicAttackDmg(checkFinalAmount(cel)*2);
+    std::cout << "Strzelasz strzala, potwor dostal: " << checkFinalAmountFromMonster(cel)*2 << " obrazen" << std::endl;
+    cel->receiveBasicAttackDmg(checkFinalAmountFromMonster(cel)*2);
 
 }
 void Archer::skillAttack(Monster*cel){
-    std::cout << "strzelasz ognista strzala i potwor otrzymuje: " << checkFinalAmount(cel)*6 << " obrazen" << std::endl;
-    cel->receiveSkillAttackDmg(checkFinalAmount(cel)*6);
+    std::cout << "strzelasz ognista strzala i potwor otrzymuje: " << checkFinalAmountFromMonster(cel)*6 << " obrazen" << std::endl;
+    cel->receiveSkillAttackDmg(checkFinalAmountFromMonster(cel)*6);
 
 }
 

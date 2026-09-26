@@ -33,7 +33,7 @@ void Character::receiveDamage(int amount)
     }
     std::cout << "Zostalo ci: " << hp << " hp" << std::endl;
 }
-int Character::checkFinalAmount(Monster *cel)
+int Character::checkFinalAmountFromMonster(Monster *cel)
 {
 
     int finalAmount = ((damage) - cel->getDefense());
