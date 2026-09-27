@@ -3,6 +3,6 @@
 #include "Monster.h"
 #include "Character.h"
 
-void BattleTurn(Character *hero, Monster &monster, int wybor);
+void BattleTurn(Character *hero, Monster &monster, int choose);
 
 #endif

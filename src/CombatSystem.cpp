@@ -1,15 +1,15 @@
 #include "../include/CombatSystem.h"
 
-void BattleTurn (Character *hero, Monster &monster, int wybor)
+void BattleTurn (Character *hero, Monster &monster, int choose)
 {
-    switch (wybor)
+    switch (choose)
     {
     case 2:
     case 4:
     {
         if (hero->checkHeroHp() > 0 && monster.checkMonsterHp() > 0)
         {
-            if (wybor == 2)
+            if (choose == 2)
             {
                 hero->baseAttack(&monster);
             }
