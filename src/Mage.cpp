@@ -8,7 +8,7 @@ Mage::Mage(const std::string &name, int hp, int defense, int damage)
 {
 }
 
-
+// do zrobienia coś z tym bo akutalnie robią to samo prócz mnożnika
 void Mage::baseAttack(Monster *cel)
 {
     

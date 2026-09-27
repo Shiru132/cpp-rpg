@@ -33,6 +33,7 @@ void Character::receiveDamage(int amount)
     }
     std::cout << "Zostalo ci: " << hp << " hp" << std::endl;
 }
+// w klasach trzeba przypisać to do zmiennej
 int Character::checkFinalAmountFromMonster(Monster *cel)
 {
 

@@ -8,7 +8,7 @@ Warrior::Warrior(const std::string &name, int hp, int defense, int damage)
     : Character(name, hp, defense, damage)
 {
 }
-
+// do zrobienia coś z tym bo akutalnie robią to samo prócz mnożnika
 void Warrior::baseAttack(Monster *cel)
 {
     std::cout << "Wykonujesz atak mieczem, potwor dostal: " << checkFinalAmountFromMonster(cel)*2 << " obrazen" << std::endl;

@@ -7,6 +7,7 @@ Archer::Archer(const std::string &name, int hp, int defense, int damage)
     : Character(name, hp, defense, damage)
 {
 }
+// do zrobienia coś z tym bo akutalnie robią to samo prócz mnożnika
 void Archer::baseAttack(Monster*cel){
     std::cout << "Strzelasz strzala, potwor dostal: " << checkFinalAmountFromMonster(cel)*2 << " obrazen" << std::endl;
     cel->receiveBasicAttackDmg(checkFinalAmountFromMonster(cel)*2);
