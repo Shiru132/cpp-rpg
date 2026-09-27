@@ -4,7 +4,7 @@
 MonsterDatabase::MonsterDatabase()
 {
     //"name", "hp","dmg","def"
-    Monster zombie("zombie", 1000, 100, 100);
+    Monster zombie("zombie", 1000, 150, 100);
     Monster spider("spider", 250, 100, 600);
 
     listOfMonsters.push_back(zombie);

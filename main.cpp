@@ -1,6 +1,5 @@
 
 
-
 #include <iostream>
 #include <memory>
 #include <vector>
@@ -12,13 +11,12 @@
 #include "include/Warrior.h"
 #include "include/Mage.h"
 #include "include/Archer.h"
-
-
+#include "include/CombatSystem.h"
 
 int main()
 {
     MonsterDatabase database;
-    Monster &zombie = database.getMonster(0);
+    Monster &monster = database.getMonster(0);
 
     std::string nick;
     int health;
@@ -70,7 +68,7 @@ int main()
     case 2:
     {
         health = 1200;
-        defense = 200;
+        defense = 100;
         damage = 110;
         hero = std::make_unique<Mage>(nick, health, defense, damage);
     }
@@ -112,15 +110,8 @@ int main()
         break;
         case 2:
         {
-            if (hero->checkHeroHp() > 0 && zombie.checkMonsterHp() > 0)
-            {
-                hero->baseAttack(&zombie);
-            }
-            if (zombie.checkMonsterHp() > 0)
-            {
-                hero->receiveDamage(zombie.getDamage());
-                zombie.monsterHeal();
-            }
+
+            BattleTurn(hero.get(), monster, chosenOption);
         }
         break;
         case 3:
@@ -129,16 +120,9 @@ int main()
         }
         break;
         case 4:
+
         {
-            if (hero->checkHeroHp() > 0 && zombie.checkMonsterHp() > 0)
-            {
-                hero->skillAttack(&zombie);
-            }
-            if (zombie.checkMonsterHp() > 0)
-            {
-                hero->receiveDamage(zombie.getDamage());
-                zombie.monsterHeal();
-            }
+            BattleTurn(hero.get(), monster, chosenOption);
         }
         break;
         case 5:
@@ -148,7 +132,7 @@ int main()
         break;
         case 6:
         {
-            zombie.showMonsterInfo();
+            monster.showMonsterInfo();
         }
         break;
         case 7:
