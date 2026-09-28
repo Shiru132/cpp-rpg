@@ -1,6 +1,9 @@
 #include "../include/CombatSystem.h"
 
-void BattleTurn (Character *hero, Monster &monster, int choose)
+#include <memory>
+#include <iostream>
+
+void BattleTurn(Character *hero, Monster &monster, int choose)
 {
     switch (choose)
     {
@@ -24,5 +27,77 @@ void BattleTurn (Character *hero, Monster &monster, int choose)
             monster.monsterHeal();
         }
     }
+    }
+}
+
+// no ogólnie do nauki bo wyczarowane z stackoverflow i się dowiedz o co cho bo w funkcji tego w sumie nie używałem jako argumentu
+void CreateHero(std::unique_ptr<Character> &hero)
+{
+    
+    
+    bool y = false;
+    int klasa;
+    std::string klasa_wybor;
+    std::string nick;
+
+    int health;
+    int defense;
+    int damage;
+
+    std::cout << "Podaj nick: ";
+    std::cin >> nick;
+
+    while (y != true)
+    {
+        std::cout << "Wybierz klasę (Warrior,Mage,Archer): ";
+        std::cin >> klasa_wybor;
+        if (klasa_wybor == "Warrior" || klasa_wybor == "warrior")
+        {
+            klasa = 1;
+            y = true;
+        }
+        else if (klasa_wybor == "Mage" || klasa_wybor == "mage")
+        {
+            klasa = 2;
+            y = true;
+        }
+        else if (klasa_wybor == "Archer" || klasa_wybor == "archer")
+        {
+            klasa = 3;
+            y = true;
+        }
+        else
+        {
+            std::cout << "Zla nazwa postaci" << std::endl;
+        }
+    }
+    switch (klasa)
+    {
+    case 1:
+    {
+        health = 200;
+        defense = 20;
+        damage = 30;
+        hero = std::make_unique<Warrior>(nick, health, defense, damage);
+    }
+    break;
+    case 2:
+    {
+        health = 1200;
+        defense = 100;
+        damage = 110;
+        hero = std::make_unique<Mage>(nick, health, defense, damage);
+    }
+    break;
+    case 3:
+    {
+        health = 150;
+        defense = 15;
+        damage = 40;
+        hero = std::make_unique<Archer>(nick, health, defense, damage);
+    }
+    break;
+    default:
+        break;
     }
 }

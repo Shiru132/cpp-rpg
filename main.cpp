@@ -17,74 +17,12 @@ int main()
 {
     MonsterDatabase database;
     Monster &monster = database.getMonster(0);
+    std::unique_ptr<Character> hero = nullptr;
+  
 
-    std::string nick;
-    int health;
-    int defense;
-    int damage;
-    std::string klasa_wybor;
-    int klasa;
-    std::unique_ptr<Character> hero;
     bool x = false;
-    bool y = false;
-
-    std::cout << "Podaj nick: ";
-    std::cin >> nick;
-
-    while (y != true)
-    {
-        std::cout << "Wybierz klasę (Warrior,Mage,Archer): ";
-        std::cin >> klasa_wybor;
-        if (klasa_wybor == "Warrior" || klasa_wybor == "warrior")
-        {
-            klasa = 1;
-            y = true;
-        }
-        else if (klasa_wybor == "Mage" || klasa_wybor == "mage")
-        {
-            klasa = 2;
-            y = true;
-        }
-        else if (klasa_wybor == "Archer" || klasa_wybor == "archer")
-        {
-            klasa = 3;
-            y = true;
-        }
-        else
-        {
-            std::cout << "Zla nazwa postaci" << std::endl;
-        }
-    }
-    switch (klasa)
-    {
-    case 1:
-    {
-        health = 200;
-        defense = 20;
-        damage = 30;
-        hero = std::make_unique<Warrior>(nick, health, defense, damage);
-    }
-    break;
-    case 2:
-    {
-        health = 1200;
-        defense = 100;
-        damage = 110;
-        hero = std::make_unique<Mage>(nick, health, defense, damage);
-    }
-    break;
-    case 3:
-    {
-        health = 150;
-        defense = 15;
-        damage = 40;
-        hero = std::make_unique<Archer>(nick, health, defense, damage);
-    }
-    break;
-    default:
-        break;
-    }
-
+    
+    CreateHero(hero);
     std::cout << "===Wybierz opcje od (1 do 9)===" << std::endl;
     std::cout << "1. pokaz info swojej postaci: " << std::endl;
     std::cout << "2. wykonaj podstawowy atak: " << std::endl;
