@@ -9,6 +9,7 @@
 
 void BattleTurn(Character *hero, Monster &monster, int choose);
 
-void CreateHero(std::unique_ptr <Character> &hero);
+void CreateHero(std::unique_ptr<Character> &hero);
+void GameMenu(Character *hero, Monster &monster);
 
 #endif

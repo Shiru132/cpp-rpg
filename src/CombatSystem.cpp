@@ -1,6 +1,7 @@
 #include "../include/CombatSystem.h"
 
 #include <memory>
+#include <sstream>
 #include <iostream>
 
 void BattleTurn(Character *hero, Monster &monster, int choose)
@@ -30,11 +31,9 @@ void BattleTurn(Character *hero, Monster &monster, int choose)
     }
 }
 
-// no ogólnie do nauki bo wyczarowane z stackoverflow i się dowiedz o co cho bo w funkcji tego w sumie nie używałem jako argumentu
 void CreateHero(std::unique_ptr<Character> &hero)
 {
-    
-    
+
     bool y = false;
     int klasa;
     std::string klasa_wybor;
@@ -99,5 +98,81 @@ void CreateHero(std::unique_ptr<Character> &hero)
     break;
     default:
         break;
+    }
+}
+
+void GameMenu(Character *hero, Monster &monster)
+{
+    bool exit = false;
+    std::cout << "===Wybierz opcje od (1 do 9)===" << std::endl;
+    std::cout << "1. pokaz info swojej postaci: " << std::endl;
+    std::cout << "2. wykonaj podstawowy atak: " << std::endl;
+    std::cout << "3. uleczecesadsadsa sie: " << std::endl;
+    std::cout << "4. wykonaj uderzenie skillem: " << std::endl;
+    std::cout << "5. budowa: " << std::endl;
+    std::cout << "6. Pokaz staty przeciwnika: " << std::endl;
+    std::cout << "7. budowa: " << std::endl;
+    std::cout << "8. budowa: " << std::endl;
+    std::cout << "9. koniec programu: " << std::endl;
+
+    while (exit != true)
+    {
+        int chosenOption;
+
+        std::cin >> chosenOption;
+       
+
+        switch (chosenOption)
+        {
+        case 1:
+        {
+            hero->showInfo();
+        }
+        break;
+        case 2:
+        {
+
+            BattleTurn(hero, monster, chosenOption);
+        }
+        break;
+        case 3:
+        {
+            hero->heal();
+        }
+        break;
+        case 4:
+
+        {
+            BattleTurn(hero, monster, chosenOption);
+        }
+        break;
+        case 5:
+        {
+            std::cout << "xd";
+        }
+        break;
+        case 6:
+        {
+            monster.showMonsterInfo();
+        }
+        break;
+        case 7:
+        {
+            hero->showInfo();
+        }
+        break;
+        case 8:
+        {
+            hero->showInfo();
+        }
+        break;
+        case 9:
+        {
+            exit = true;
+        }
+        break;
+        default:
+            std::cout << "Podaj poprawna liczbe: " << std::endl;
+        }
     }
 }
