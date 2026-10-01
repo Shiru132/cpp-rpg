@@ -23,6 +23,9 @@ Aktualnie projekt posiada:
 - podstawową enkapsulację danych
 - gettery i metody odpowiedzialne za zmianę stanu obiektów
 - rozdzielenie klas na pliki `.h` i `.cpp`
+- system przedmiotów (`Items` i `ItemsList`)
+- testy jednostkowe z użyciem GoogleTest
+- konfigurację projektu za pomocą CMake
 
 Projekt jest nadal w trakcie rozwoju i część kodu będzie jeszcze refaktoryzowana.
 
@@ -41,6 +44,9 @@ The project currently includes:
 - basic data encapsulation
 - getters and methods responsible for modifying object state
 - classes separated into `.h` and `.cpp` files
+- an item system (`Items` and `ItemsList`)
+- unit tests using GoogleTest
+- project configuration using CMake
 
 The project is still in development, and some parts of the code will be refactored as I continue learning.
 
@@ -56,6 +62,8 @@ The project is still in development, and some parts of the code will be refactor
 - References
 - Exceptions
 - Git / GitHub
+- CMake
+- GoogleTest
 
 ---
 
@@ -69,7 +77,8 @@ C++-RPG/
 │   ├── MonsterDatabase.h
 │   ├── Warrior.h
 │   ├── Mage.h
-│   └── Archer.h
+│   ├── Archer.h
+│   └── Items.h
 │
 ├── src/
 │   ├── Character.cpp
@@ -77,11 +86,16 @@ C++-RPG/
 │   ├── MonsterDatabase.cpp
 │   ├── Warrior.cpp
 │   ├── Mage.cpp
-│   └── Archer.cpp
+│   ├── Archer.cpp
+│   └── Items.cpp
+│
+├── tests/
+│   └── ItemsTests.cpp
 │
 ├── data/
-│   └── Monsters.json
+│   └── Monsters.json |X
 │
 ├── main.cpp
+├── CMakeLists.txt
 ├── .gitignore
 └── README.md
