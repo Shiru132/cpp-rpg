@@ -2,30 +2,44 @@
 #include <stdexcept>
 #include <iostream>
 
-
-Items::Items(const std::string &name, int dmg, int hp, int def)
+Items::Items(const std::string &name, int dmg, int hp, int def, int value)
 {
     this->name = name;
     this->dmg = dmg;
     this->hp = hp;
     this->def = def;
+    this->value = value;
 }
 
-Items &ItemsList::dropItem(int i)
-{
-    Items truta("red shield", 20, 30, 40);
-    Items stal("poison blade", 20, 30, 40);
-    ListOfItems.push_back(truta);
-    ListOfItems.push_back(stal);
+Items &ItemsList::getItem(int i)
+{ // name , dmg , hp, def, value
+    Items red_shield("red shield", 20, 30, 40, 1200);
+    Items poison_blade("poison blade", 20, 30, 40, 1000);
+    Items h_potion("healing potion ", 0, 50, 0, 20);
+    ListOfItems.push_back(red_shield);
+    ListOfItems.push_back(h_potion);
     if (i > (ListOfItems.size()) - 1 || i < 0)
     {
-        throw std::runtime_error("Monster not found potato");
+        throw std::runtime_error("Item not found potato");
     }
     return ListOfItems[i];
 }
-void Items::showItemInfo() const{
+void Items::showItemInfo() const
+{
     std::cout << "Nazwa przedmiotu: " << name << std::endl
-                  << "Hp: " << hp << std::endl
-                  << "Def: " << def << std::endl
-                  << "Dmg: " << dmg << std::endl;
+              << "Hp: " << hp << std::endl
+              << "Def: " << def << std::endl
+              << "Dmg: " << dmg << std::endl;
+}
+// std::string ItemsList::getName(Items &getItem(int i))const {
+//     int i;
+//     return ListOfItems[i].name;
+// }
+void Items::equipItem()
+{
+}
+std::string Items::GetName() const
+{
+
+    return name;
 }

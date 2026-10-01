@@ -1,2 +1,8 @@
+# CMake
+build/
+cmake-build-*/
+
+# Executables
 *.exe
+# Visual Studio Code
 .vscode/

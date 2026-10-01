@@ -10,10 +10,13 @@ private:
     int dmg;
     int hp;
     int def;
+    int value;
 
 public:
-    Items(const std::string &name, int dmg, int hp, int def);
-     void showItemInfo() const;
+    Items(const std::string &name, int dmg, int hp, int def, int value);
+    void showItemInfo() const;
+    void equipItem();
+    std::string GetName() const;
 };
 
 class ItemsList
@@ -22,9 +25,8 @@ private:
     std::vector<Items> ListOfItems;
 
 public:
+    Items &getItem(int i);
     
-    Items& dropItem(int i);
-   
 };
 
 #endif

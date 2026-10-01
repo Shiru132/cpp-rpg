@@ -20,9 +20,24 @@ int main()
     Monster &monster = database.getMonster(0);
     std::unique_ptr<Character> hero = nullptr;
     ItemsList itemslist;
-    Items &item = itemslist.dropItem(1);
-    item.showItemInfo();
+  
+    Items &item = itemslist.getItem(0);
+       
     
+
+    
+   
+    
+    item.showItemInfo();
+   
+    
+    if (item.GetName() ==  "healing potion"){
+        std::cout << "PASS"<<std::endl;
+    }
+    else{
+        std::cout<<"FAIL"<<std::endl;
+    }
+    // todo ekwipunek i dokończenie itemów
     CreateHero(hero);
     GameMenu(hero.get(), monster);
 }
