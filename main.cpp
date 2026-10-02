@@ -21,7 +21,7 @@ int main()
     std::unique_ptr<Character> hero = nullptr;
     ItemsList itemslist;
   
-    Items &item = itemslist.getItem(0);
+    Item &item = itemslist.getItem(0);
        
     
 

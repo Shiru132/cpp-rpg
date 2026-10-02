@@ -3,7 +3,7 @@
 #include <vector>
 #include <string>
 
-class Items
+class Item
 {
 private:
     std::string name;
@@ -11,9 +11,10 @@ private:
     int hp;
     int def;
     int value;
+    bool stackable;
 
 public:
-    Items(const std::string &name, int dmg, int hp, int def, int value);
+    Item(const std::string &name, int dmg, int hp, int def, int value, bool stackable);
     void showItemInfo() const;
     void equipItem();
     std::string GetName() const;
@@ -22,11 +23,10 @@ public:
 class ItemsList
 {
 private:
-    std::vector<Items> ListOfItems;
+    std::vector<Item> ListOfItems;
 
 public:
-    Items &getItem(int i);
-    
+    Item &getItem(int i);
 };
 
 #endif

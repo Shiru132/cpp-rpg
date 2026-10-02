@@ -2,20 +2,21 @@
 #include <stdexcept>
 #include <iostream>
 
-Items::Items(const std::string &name, int dmg, int hp, int def, int value)
+Item::Item(const std::string &name, int dmg, int hp, int def, int value, bool stackable)
 {
     this->name = name;
     this->dmg = dmg;
     this->hp = hp;
     this->def = def;
     this->value = value;
+    this->stackable = stackable;
 }
 
-Items &ItemsList::getItem(int i)
-{ // name , dmg , hp, def, value
-    Items red_shield("red shield", 20, 30, 40, 1200);
-    Items poison_blade("poison blade", 20, 30, 40, 1000);
-    Items h_potion("healing potion ", 0, 50, 0, 20);
+Item &ItemsList::getItem(int i)
+{ // name , dmg , hp, def, value, stackable, quantity
+    Item red_shield("red shield", 20, 30, 40, 1200, false);
+    Item poison_blade("poison blade", 20, 30, 40, 1000, false);
+    Item h_potion("healing potion ", 0, 50, 0, 20, true);
     ListOfItems.emplace_back(red_shield);
     ListOfItems.emplace_back(h_potion);
     if (i > (ListOfItems.size()) - 1 || i < 0)
@@ -24,7 +25,7 @@ Items &ItemsList::getItem(int i)
     }
     return ListOfItems[i];
 }
-void Items::showItemInfo() const
+void Item::showItemInfo() const
 {
     std::cout << "Nazwa przedmiotu: " << name << std::endl
               << "Hp: " << hp << std::endl
@@ -35,10 +36,10 @@ void Items::showItemInfo() const
 //     int i;
 //     return ListOfItems[i].name;
 // }
-void Items::equipItem()
+void Item::equipItem()
 {
 }
-std::string Items::GetName() const
+std::string Item::GetName() const
 {
 
     return name;
