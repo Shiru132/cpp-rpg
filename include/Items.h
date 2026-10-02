@@ -16,7 +16,7 @@ private:
 public:
     Item(const std::string &name, int dmg, int hp, int def, int value, bool stackable);
     void showItemInfo() const;
-    void equipItem();
+    
     std::string GetName() const;
 };
 

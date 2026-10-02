@@ -4,18 +4,30 @@
 #include <Character.h>
 #include <Items.h>
 
+class InventoryItemSlot
+{
+private:
+    const Item &item;
+    int quantity;
+
+public:
+    InventoryItemSlot(const Item &item, int quantity)
+        : item(item), quantity(quantity)
+    {
+    }
+};
 class Inventory
 {
 private:
+    std::vector<InventoryItemSlot> inventory;
     
     
-    std::vector<Item> InventoryItem;
 
-    public:
-    void addItem(Item &getItem(int i));
-    void equipItem(Item &getItem(int i));
-    void useItem(Item &getItem(int i));
-    void removeItem(Item &getItem(int i));
+public:
+    void addItem(const Item&, int quantity);
+    void equipItem(Item &, int quantity);
+    void useItem(Item &, int quantity);
+    void removeItem(Item &, int quantity);
     void checkInventory() const;
 };
 

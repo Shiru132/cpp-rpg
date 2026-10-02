@@ -13,7 +13,7 @@ Item::Item(const std::string &name, int dmg, int hp, int def, int value, bool st
 }
 
 Item &ItemsList::getItem(int i)
-{ // name , dmg , hp, def, value, stackable, quantity
+{ // name , dmg , hp, def, value, stackable
     Item red_shield("red shield", 20, 30, 40, 1200, false);
     Item poison_blade("poison blade", 20, 30, 40, 1000, false);
     Item h_potion("healing potion ", 0, 50, 0, 20, true);
@@ -32,13 +32,8 @@ void Item::showItemInfo() const
               << "Def: " << def << std::endl
               << "Dmg: " << dmg << std::endl;
 }
-// std::string ItemsList::getName(Items &getItem(int i))const {
-//     int i;
-//     return ListOfItems[i].name;
-// }
-void Item::equipItem()
-{
-}
+
+
 std::string Item::GetName() const
 {
 
