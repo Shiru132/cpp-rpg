@@ -16,8 +16,8 @@ Items &ItemsList::getItem(int i)
     Items red_shield("red shield", 20, 30, 40, 1200);
     Items poison_blade("poison blade", 20, 30, 40, 1000);
     Items h_potion("healing potion ", 0, 50, 0, 20);
-    ListOfItems.push_back(red_shield);
-    ListOfItems.push_back(h_potion);
+    ListOfItems.emplace_back(red_shield);
+    ListOfItems.emplace_back(h_potion);
     if (i > (ListOfItems.size()) - 1 || i < 0)
     {
         throw std::runtime_error("Item not found potato");
