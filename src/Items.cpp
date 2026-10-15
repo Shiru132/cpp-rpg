@@ -2,7 +2,7 @@
 #include <stdexcept>
 #include <iostream>
 
-Item::Item(const std::string &name, int dmg, int hp, int def, int value, bool stackable)
+Item::Item(const std::string &name, int dmg, int hp, int def, int value, bool stackable, itemType type)
 {
     this->name = name;
     this->dmg = dmg;
@@ -10,15 +10,15 @@ Item::Item(const std::string &name, int dmg, int hp, int def, int value, bool st
     this->def = def;
     this->value = value;
     this->stackable = stackable;
+    this->type = type;
 }
 
 Item &ItemsList::getItem(int i)
 { // name , dmg , hp, def, value, stackable
-    Item red_shield("red shield", 20, 30, 40, 1200, false);
-    Item poison_blade("poison blade", 20, 30, 40, 1000, false);
-    Item h_potion("healing potion ", 0, 50, 0, 20, true);
-    ListOfItems.emplace_back(red_shield);
-    ListOfItems.emplace_back(h_potion);
+    ListOfItems.emplace_back("red shield", 20, 300, 40, 1200, false, 2);
+    ListOfItems.emplace_back("poison blade", 20, 30, 40, 1000, false, 0);
+    ListOfItems.emplace_back("healing potion ", 0, 50, 0, 20, true,4);
+
     if (i > (ListOfItems.size()) - 1 || i < 0)
     {
         throw std::runtime_error("Item not found potato");
@@ -33,9 +33,25 @@ void Item::showItemInfo() const
               << "Dmg: " << dmg << std::endl;
 }
 
-
 std::string Item::GetName() const
 {
 
     return name;
+}
+
+int Item::GetDmg() const
+{
+    return dmg;
+}
+int Item::GetHp() const
+{
+    return hp;
+}
+int Item::GetDef() const
+{
+    return def;
+}
+itemType Item::GetTypeOfItem() const
+{
+    return type;
 }

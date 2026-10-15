@@ -6,7 +6,7 @@ TEST(ItemsTest, FirstItemHasCorrectName)
 {
     ItemsList itemsList;
 
-    Items& item = itemsList.getItem(0);
+    Item& item = itemsList.getItem(0);
 
     EXPECT_EQ(item.GetName(), "red shield");
 }

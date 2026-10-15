@@ -3,6 +3,7 @@
 #include <memory>
 #include <Character.h>
 #include <Items.h>
+#include "Character.h"
 
 class InventoryItemSlot
 {
@@ -15,17 +16,16 @@ public:
         : item(item), quantity(quantity)
     {
     }
+    const Item& getItem() const;
 };
 class Inventory
 {
 private:
     std::vector<InventoryItemSlot> inventory;
-    
-    
 
 public:
-    void addItem(const Item&, int quantity);
-    void equipItem(Item &, int quantity);
+    void addItem(const Item &, int quantity);
+    void equipItem(const Item &item, int numbOfItem, Character *hero);
     void useItem(Item &, int quantity);
     void removeItem(Item &, int quantity);
     void checkInventory() const;

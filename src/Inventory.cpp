@@ -6,3 +6,14 @@ void Inventory::addItem(const Item &item, int quantity)
 {
     inventory.push_back(InventoryItemSlot(item, quantity));
 }
+void Inventory::equipItem(int numbOfITem, Character *hero)
+{
+    itemType type = inventory[numbOfITem].getItem().GetTypeOfItem();
+    if(type == itemType::Armor ||
+    type == itemType::Shield ||
+    type == itemType::Weapon ||
+    type == itemType::Helmet){
+        //code
+    }
+    
+}
