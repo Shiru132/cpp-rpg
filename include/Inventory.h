@@ -24,7 +24,9 @@ private:
     std::vector<InventoryItemSlot> inventory;
 
 public:
+    // w trakcie budowy
     void addItem(const Item &, int quantity);
+    // do zrobienia całość
     void equipItem(const Item &item, int numbOfItem, Character *hero);
     void useItem(Item &, int quantity);
     void removeItem(Item &, int quantity);

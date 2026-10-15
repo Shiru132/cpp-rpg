@@ -13,7 +13,7 @@ void Inventory::equipItem(int numbOfITem, Character *hero)
     type == itemType::Shield ||
     type == itemType::Weapon ||
     type == itemType::Helmet){
-        //code
+        //do napisania kod dla eq a potem dla niezakładalnych
     }
     
 }

@@ -1,0 +1,1 @@
+// zalążek pod eq ściąganie i zakładanie
