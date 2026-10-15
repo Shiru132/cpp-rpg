@@ -1,9 +1,9 @@
 #ifndef INVENTORY_H
 #define INVENTORY_H
 #include <memory>
-#include <Character.h>
-#include <Items.h>
 #include "Character.h"
+#include "Items.h"
+
 
 class InventoryItemSlot
 {
