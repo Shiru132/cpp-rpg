@@ -2,7 +2,7 @@
 #include "../include/Items.h"
 #include <gtest/gtest.h>
 
-// test 1
+// test na zgodność nazw
 TEST(ItemsTest, FirstItemHasCorrectName)
 {
     ItemsList itemsList;
@@ -10,6 +10,7 @@ TEST(ItemsTest, FirstItemHasCorrectName)
 
     EXPECT_EQ(item.GetName(), "red shield");
 }
+// test dla duplikacji listy itemków
 TEST(ItemsTest, duplicationTest)
 {
     ItemsList itemsList;
@@ -19,7 +20,7 @@ TEST(ItemsTest, duplicationTest)
     EXPECT_EQ(&item1,&item2);
     
 }
-// test 2
+// test na wyjście poza index
 TEST(ItemsTest, indexTest)
 {
     ItemsList itemsList;
