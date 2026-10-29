@@ -32,6 +32,7 @@ public:
     int GetDmg() const;
     int GetHp() const;
     int GetDef() const;
+    bool checkIfStackable() const;
     itemType GetTypeOfItem() const;
 };
 

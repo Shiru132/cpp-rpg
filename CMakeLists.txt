@@ -11,6 +11,7 @@ add_executable(Niro
     src/Archer.cpp
     src/Mage.cpp
     src/Warrior.cpp
+    src/Inventory.cpp
 
 
 
@@ -28,6 +29,8 @@ FetchContent_MakeAvailable(GoogleTest)
 add_executable(NiroTests
     tests/ItemsTests.cpp
     src/Items.cpp
+    src/Inventory.cpp
+    src/Character.cpp
 )
 target_include_directories(NiroTests PRIVATE include)
 target_link_libraries(NiroTests gtest_main)

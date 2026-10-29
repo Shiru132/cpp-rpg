@@ -20,7 +20,7 @@ ItemsList::ItemsList()
     ListOfItems.emplace_back("red shield",      20, 300, 40,   1200, false, itemType::Shield);
     ListOfItems.emplace_back("poison blade",    20, 30,  40,   1000, false, itemType::Weapon);
     ListOfItems.emplace_back("healing potion ", 0,  50,  0,    50,   true,  itemType::Potion);
-    ListOfItems.emplace_back("dark helmet ",    0,  50,  300,  900,  true,  itemType::Helmet);
+    ListOfItems.emplace_back("dark helmet ",    0,  50,  300,  900,  false,  itemType::Helmet);
 }
 Item &ItemsList::getItem(int i)
 {
@@ -44,6 +44,10 @@ std::string Item::GetName() const
 {
 
     return name;
+}
+bool Item::checkIfStackable() const
+{
+    return stackable;
 }
 
 int Item::GetDmg() const

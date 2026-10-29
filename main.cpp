@@ -31,7 +31,7 @@ int main()
     item.showItemInfo();
    
     
-    if (item.GetName() ==  "healing potion"){
+    if (item.GetName() ==  "red shield"){
         std::cout << "PASS"<<std::endl;
     }
     else{

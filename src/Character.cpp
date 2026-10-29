@@ -48,3 +48,8 @@ int Character::checkHeroHp()
 {
     return hp;
 }
+void Character::equippedItemBonus(int hp, int defense, int damage){
+    this->hp +=hp;
+    this->defense += defense;
+    this->damage +=damage;
+}

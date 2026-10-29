@@ -23,7 +23,7 @@ public:
     int checkFinalAmountFromMonster(Monster* cel);
 
     
-
+    void equippedItemBonus(int hp, int defense, int damage);
     virtual void showInfo() = 0;
     virtual void baseAttack(Monster *cel) = 0;
     virtual void skillAttack(Monster *cel) = 0;

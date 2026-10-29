@@ -17,20 +17,29 @@ public:
     {
     }
     const Item& getItem() const;
+    void addQuantity(int amount);
+        
+    
 };
 class Inventory
 {
 private:
     std::vector<InventoryItemSlot> inventory;
+    bool helmetEquipped = false;
+    bool shieldEquipped = false;
+    bool armorEquipped = false;
+    bool weaponEquipped = false;
 
 public:
     // w trakcie budowy
     void addItem(const Item &, int quantity);
-    // do zrobienia całość
-    void equipItem(int numbOfItem, Character *hero);
-    void useItem(Item &, int quantity);
-    void removeItem(Item &, int quantity);
-    void checkInventory() const;
+   
+    
+    void equipItem(int numberOfItem, Character *hero);
+    //do zrobienia
+    // void useItem(Item &, int quantity);
+    // void removeItem(Item &, int quantity);
+    // void checkInventory() const;
 };
 
 #endif

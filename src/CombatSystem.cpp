@@ -1,4 +1,6 @@
 #include "../include/CombatSystem.h"
+#include "../include/Inventory.h"
+#include "../include/Items.h"
 
 #include <memory>
 #include <sstream>
@@ -111,7 +113,7 @@ void GameMenu(Character *hero, Monster &monster)
     std::cout << "4. wykonaj uderzenie skillem: " << std::endl;
     std::cout << "5. budowa: " << std::endl;
     std::cout << "6. Pokaz staty przeciwnika: " << std::endl;
-    std::cout << "7. budowa: " << std::endl;
+    std::cout << "7. Załóż item: " << std::endl;
     std::cout << "8. budowa: " << std::endl;
     std::cout << "9. koniec programu: " << std::endl;
 
@@ -120,7 +122,6 @@ void GameMenu(Character *hero, Monster &monster)
         int chosenOption;
 
         std::cin >> chosenOption;
-       
 
         switch (chosenOption)
         {
@@ -158,12 +159,21 @@ void GameMenu(Character *hero, Monster &monster)
         break;
         case 7:
         {
+            std::cout << "Staty postaci przed zalozeniem: \n";
+            hero->showInfo();
+            ItemsList itemslist;
+            Item &item = itemslist.getItem(0);
+            Inventory inventory;
+            inventory.addItem(item, 1);
+            inventory.equipItem(0, hero);
+
+            std::cout << "Staty postaci po zalozeniu: \n";
             hero->showInfo();
         }
         break;
         case 8:
         {
-            hero->showInfo();
+            std::cout << "Budowa.... \n";
         }
         break;
         case 9:
