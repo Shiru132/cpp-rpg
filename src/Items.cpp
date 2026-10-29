@@ -13,13 +13,19 @@ Item::Item(const std::string &name, int dmg, int hp, int def, int value, bool st
     this->type = type;
 }
 
+// dajemy tu konstruktor dlatego żeby tylko raz zainicjalizować liste przedmiotów aby uniknąć duplikatów
+ItemsList::ItemsList()
+{
+     // name , dmg , hp, def, value, stackable
+    ListOfItems.emplace_back("red shield", 20, 300, 40, 1200, false, itemType::Shield);
+    ListOfItems.emplace_back("poison blade", 20, 30, 40, 1000, false, itemType::Weapon);
+    ListOfItems.emplace_back("healing potion ", 0, 50, 0, 20, true, itemType::Potion);
+}
 Item &ItemsList::getItem(int i)
-{ // name , dmg , hp, def, value, stackable
-    ListOfItems.emplace_back("red shield", 20, 300, 40, 1200, false, 2);
-    ListOfItems.emplace_back("poison blade", 20, 30, 40, 1000, false, 0);
-    ListOfItems.emplace_back("healing potion ", 0, 50, 0, 20, true,4);
+{
+  
 
-    if (i > (ListOfItems.size()) - 1 || i < 0)
+    if (i > (ListOfItems.size()) - 1 || i < 0 || ListOfItems.size()==0) 
     {
         throw std::runtime_error("Item not found potato");
     }

@@ -41,6 +41,7 @@ private:
     std::vector<Item> ListOfItems;
 
 public:
+    ItemsList();
     Item &getItem(int i);
 };
 
