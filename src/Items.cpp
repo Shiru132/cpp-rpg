@@ -16,10 +16,11 @@ Item::Item(const std::string &name, int dmg, int hp, int def, int value, bool st
 // dajemy tu konstruktor dlatego żeby tylko raz zainicjalizować liste przedmiotów aby uniknąć duplikatów
 ItemsList::ItemsList()
 {
-     // name , dmg , hp, def, value, stackable
-    ListOfItems.emplace_back("red shield", 20, 300, 40, 1200, false, itemType::Shield);
-    ListOfItems.emplace_back("poison blade", 20, 30, 40, 1000, false, itemType::Weapon);
-    ListOfItems.emplace_back("healing potion ", 0, 50, 0, 20, true, itemType::Potion);
+                                //name ,        dmg, hp, def, value, stackable, type
+    ListOfItems.emplace_back("red shield",      20, 300, 40,   1200, false, itemType::Shield);
+    ListOfItems.emplace_back("poison blade",    20, 30,  40,   1000, false, itemType::Weapon);
+    ListOfItems.emplace_back("healing potion ", 0,  50,  0,    50,   true,  itemType::Potion);
+    ListOfItems.emplace_back("dark helmet ",    0,  50,  300,  900,  true,  itemType::Helmet);
 }
 Item &ItemsList::getItem(int i)
 {
