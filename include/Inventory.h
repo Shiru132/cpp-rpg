@@ -43,7 +43,8 @@ public:
     // void useItem(Item &, int quantity);
     // void removeItem(Item &, int quantity);
     void checkInventory() const;
-  
+    int getQuantityOfItemInInventory(const std::string &itemName) const;
+    int getSlotCount() const;
     
 };
 

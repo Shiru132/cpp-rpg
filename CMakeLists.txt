@@ -28,6 +28,7 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(GoogleTest)
 add_executable(NiroTests
     tests/ItemsTests.cpp
+    tests/InventoryTests.cpp
     src/Items.cpp
     src/Inventory.cpp
     src/Character.cpp

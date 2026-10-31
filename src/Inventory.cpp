@@ -16,31 +16,33 @@ const std::string InventoryItemSlot::getItemName() const
 
 void Inventory::addItem(const Item &item, int quantity)
 {
-    if (quantity>0){
-    if (item.checkIfStackable() == false)
+    if (quantity > 0)
     {
-        quantity = 1;
-        inventory.push_back(InventoryItemSlot(item, quantity));
-    }
-    else if (item.checkIfStackable() == true)
-    {
-        //pętla po inventory
-        for (auto &slot : inventory)
+        if (item.checkIfStackable() == false)
         {
-           
-            if (slot.getItemName() == item.GetName())
+            quantity = 1;
+            inventory.push_back(InventoryItemSlot(item, quantity));
+        }
+        else if (item.checkIfStackable() == true)
+        {
+            // pętla po inventory
+            for (auto &slot : inventory)
             {
 
-                slot.addQuantity(quantity);
-                return;
+                if (slot.getItemName() == item.GetName())
+                {
+
+                    slot.addQuantity(quantity);
+                    return;
+                }
             }
+            inventory.push_back(InventoryItemSlot(item, quantity));
         }
-     inventory.push_back(InventoryItemSlot(item, quantity));
     }
-}
-else {
-    std::cout<< "ilosc itemow jest mniejsza od 0\n";
-}
+    else
+    {
+        std::cout << "ilosc itemow jest mniejsza od 0\n";
+    }
 }
 
 void Inventory::equipItem(int numberOfItem, Character *hero)
@@ -97,4 +99,18 @@ void Inventory::checkInventory() const
 
         std::cout << "Ilosc: " << slot.checkQuantity() << " " << slot.getItem().GetName() << std::endl;
     }
+}
+int Inventory::getQuantityOfItemInInventory(const std::string &itemName) const
+{
+    for (const auto &slot : inventory)
+    {
+        if (itemName == slot.getItem().GetName())
+        {
+            return slot.checkQuantity();
+        }
+    }
+    return 0;
+}
+int Inventory::getSlotCount()const{
+    return inventory.size();
 }
