@@ -17,7 +17,10 @@ public:
     {
     }
     const Item& getItem() const;
+    const std::string getItemName() const;
+    
     void addQuantity(int amount);
+    int checkQuantity()const;
         
     
 };
@@ -39,7 +42,9 @@ public:
     //do zrobienia
     // void useItem(Item &, int quantity);
     // void removeItem(Item &, int quantity);
-    // void checkInventory() const;
+    void checkInventory() const;
+  
+    
 };
 
 #endif
