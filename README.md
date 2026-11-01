@@ -1,60 +1,55 @@
-# C++ RPG
+# Niro
 
-Prosta gra RPG tworzona w C++. Projekt zacząłem jako sposób na naukę C++ i OOP, a z czasem rozbudowuję go o kolejne elementy.
+Prosta gra RPG w C++17, którą robię, żeby nauczyć się C++, OOP i tego, jak się układa większy projekt. Rozbudowuję ją po trochu, razem z tym, czego się uczę.
 
-Simple RPG game written in C++. I started this project to learn C++ and OOP, and I am gradually adding new features and improving the code as I learn.
+A simple text-based RPG in C++17. I'm making it to learn C++, OOP and how to put together a bigger project. I keep adding stuff as I learn new things.
 
 ---
 
-## Aktualny stan projektu / Current project status
+## Co się teraz dzieje / What's going on right now
 
 ### Polski
 
-Aktualnie projekt posiada:
+Przebudowuję cały projekt na osobne moduły (`Core`, `Items`, `Inventory`, `Characters`, `Combat`, `Game`, `Database`), bo w starej wersji wszystko było trochę wrzucone do jednego worka. Stary kod (klasy `Warrior`, `Mage`, `Archer`, walka, potwory, wstępny system przedmiotów i ekwipunku) dalej jest w repo i przenoszę go po kawałku, więc część plików leży jeszcze w starych miejscach. Puste pliki w nowych folderach to tylko szkielet, który dopiero zapełniam.
 
-- kilka klas postaci: `Warrior`, `Mage` i `Archer`
-- bazową, abstrakcyjną klasę `Character`
-- dziedziczenie i polimorfizm
-- system walki
-- system potworów
-- `MonsterDatabase` przechowujący potwory w `std::vector`
-- obsługę wyjątków przy pobieraniu potworów
-- `std::unique_ptr` do zarządzania obiektem gracza
-- podstawową enkapsulację danych
-- gettery i metody odpowiedzialne za zmianę stanu obiektów
-- rozdzielenie klas na pliki `.h` i `.cpp`
-- system przedmiotów (`Items` i `ItemsList`)
-- testy jednostkowe z użyciem GoogleTest
-- konfigurację projektu za pomocą CMake
+Co chcę osiągnąć:
 
-Projekt jest nadal w trakcie rozwoju i część kodu będzie jeszcze refaktoryzowana.
+- żeby logika gry nie była mieszana z `cin`/`cout`, bazą ani siecią
+- żeby przedmiot (np. "miecz") i konkretny egzemplarz tego przedmiotu (mój miecz +5) były osobno, połączone przez `ItemId`
+- żeby statystyki postaci się wyliczały z bazowych statów i założonych przedmiotów, a nie były dopisywane na sztywno
+- żeby baza danych była w osobnej warstwie `Repository` (najpierw wersja w pamięci, potem PostgreSQL)
+- na końcu proste klient-serwer, gdzie serwer decyduje o tym, co się naprawdę stało
 
 ### English
 
-The project currently includes:
+I'm splitting the whole project into separate modules (`Core`, `Items`, `Inventory`, `Characters`, `Combat`, `Game`, `Database`), because in the old version everything was kind of thrown into one pile. The old code (`Warrior`, `Mage` and `Archer` classes, combat, monsters, an early items and inventory system) is still in the repo and I'm moving it over piece by piece, so some files are still in their old places. The empty files in the new folders are just a skeleton that I'm slowly filling in.
 
-- several character classes: `Warrior`, `Mage`, and `Archer`
-- an abstract base `Character` class
-- inheritance and polymorphism
-- a combat system
-- a monster system
-- `MonsterDatabase` using `std::vector`
-- exception handling when retrieving monsters
-- `std::unique_ptr` for managing the player object
-- basic data encapsulation
-- getters and methods responsible for modifying object state
-- classes separated into `.h` and `.cpp` files
-- an item system (`Items` and `ItemsList`)
-- unit tests using GoogleTest
-- project configuration using CMake
+What I'm aiming for:
 
-The project is still in development, and some parts of the code will be refactored as I continue learning.
+- game logic that isn't mixed with `cin`/`cout`, the database or the network
+- items (like "sword") kept separate from a specific copy of that item (my sword +5), linked by `ItemId`
+- character stats calculated from base stats and equipped items, instead of being hardcoded
+- the database in its own `Repository` layer (in-memory first, PostgreSQL later)
+- a simple client-server setup at the end, where the server decides what really happened
+
+---
+
+## Plan / Roadmap
+
+- [x] Pierwsza wersja: klasy postaci, walka, potwory, proste przedmioty i ekwipunek, testy / First version: character classes, combat, monsters, simple items and inventory, tests
+- [ ] Core (ID, staty, losowość)
+- [ ] Items (definicje, egzemplarze, rejestr)
+- [ ] Inventory i ekwipunek (przedmioty stackowane i unikalne)
+- [ ] Characters (staty liczone z założonych przedmiotów)
+- [ ] Combat (walka oddzielona od konsoli)
+- [ ] Repository (najpierw w pamięci, potem PostgreSQL)
+- [ ] Prosty klient-serwer
 
 ---
 
 ## Czego używam / What I use
 
-- C++
+- C++17
 - OOP
 - STL
 - `std::vector`
@@ -64,38 +59,10 @@ The project is still in development, and some parts of the code will be refactor
 - Git / GitHub
 - CMake
 - GoogleTest
+- PostgreSQL (jeszcze nie / not yet)
 
 ---
 
-## Struktura projektu / Project structure
+## Jak odpalić / How to build
 
-```text
-C++-RPG/
-├── include/
-│   ├── Character.h
-│   ├── Monster.h
-│   ├── MonsterDatabase.h
-│   ├── Warrior.h
-│   ├── Mage.h
-│   ├── Archer.h
-│   └── Items.h
-│
-├── src/
-│   ├── Character.cpp
-│   ├── Monster.cpp
-│   ├── MonsterDatabase.cpp
-│   ├── Warrior.cpp
-│   ├── Mage.cpp
-│   ├── Archer.cpp
-│   └── Items.cpp
-│
-├── tests/
-│   └── ItemsTests.cpp
-│
-├── data/
-│   └── Monsters.json |X
-│
-├── main.cpp
-├── CMakeLists.txt
-├── .gitignore
-└── README.md
+Jeszcze nie opisałem, wpiszę jak będzie działać po przebudowie. / Not written yet, I'll add it once the rebuild works.
