@@ -1,8 +1,33 @@
 # CMake
 build/
 cmake-build-*/
+out/
+CMakeUserPresets.json
+compile_commands.json
+CMakeFiles/
+CMakeCache.txt
 
 # Executables
 *.exe
+*.o
+*.obj
+*.a
+*.lib
+*.dll
+*.so
+*.pdb
+*.ilk
 # Visual Studio Code
 .vscode/
+.vs/
+.idea/
+.cache/
+
+# Others
+*.zip
+.env
+*.local
+config.local.*
+*.log
+Thumbs.db
+.DS_Store

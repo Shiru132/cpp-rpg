@@ -26,7 +26,7 @@ Item &ItemsList::getItem(int i)
 {
   
 
-    if (i > (ListOfItems.size()) - 1 || i < 0 || ListOfItems.size()==0) 
+    if (i > (ListOfItems.size()) - 1 || i < 0) 
     {
         throw std::runtime_error("Item not found potato");
     }
