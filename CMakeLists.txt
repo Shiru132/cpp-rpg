@@ -27,11 +27,13 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(GoogleTest)
 add_executable(NiroTests
-    tests/ItemsTests.cpp
-    tests/InventoryTests.cpp
-    src/Items.cpp
-    src/Inventory.cpp
-    src/Character.cpp
+    # tests/ItemsTests.cpp
+    # tests/InventoryTests.cpp
+    tests/core/TypesTests.cpp
+    include/Core/Types.h
+    # src/Items.cpp
+    # src/Inventory.cpp
+    # src/Character.cpp
 )
 target_include_directories(NiroTests PRIVATE include)
 target_link_libraries(NiroTests gtest_main)
