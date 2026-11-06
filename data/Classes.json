@@ -1,0 +1,55 @@
+{
+  "classes": [
+    {
+      "id": 1,
+      "name": "Warrior",
+      "description": "A strong melee fighter.",
+      "baseStats": {
+        "hp": 150,
+        "mana": 30,
+        "damage": 20,
+        "defense": 15
+      },
+      "statGrowth": {
+        "hp": 20,
+        "mana": 3,
+        "damage": 4,
+        "defense": 2
+      }
+    },
+    {
+      "id": 2,
+      "name": "Mage",
+      "description": "A powerful magic user.",
+      "baseStats": {
+        "hp": 80,
+        "mana": 150,
+        "damage": 30,
+        "defense": 5
+      },
+      "statGrowth": {
+        "hp": 8,
+        "mana": 20,
+        "damage": 6,
+        "defense": 1
+      }
+    },
+    {
+      "id": 3,
+      "name": "Archer",
+      "description": "A ranged fighter with high precision.",
+      "baseStats": {
+        "hp": 110,
+        "mana": 60,
+        "damage": 18,
+        "defense": 8
+      },
+      "statGrowth": {
+        "hp": 12,
+        "mana": 8,
+        "damage": 5,
+        "defense": 2
+      }
+    }
+  ]
+}

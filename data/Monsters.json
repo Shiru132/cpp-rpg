@@ -1,14 +1,50 @@
-[
+{
+  "monsters": [
     {
-        "name": "Zombie",
-        "hp": 500,
-        "damage": 10,
-        "defense": 5
+      "id": 2001,
+      "name": "Goblin",
+      "description": "A weak but aggressive creature.",
+      "level": 1,
+      "hp": 60,
+      "damage": 8,
+      "defense": 2,
+      "experienceReward": 25,
+      "goldReward": 10,
+      "dropTable": [
+        {
+          "itemId": 1005,
+          "dropChance": 0.35
+        },
+        {
+          "itemId": 1001,
+          "dropChance": 0.05
+        }
+      ]
     },
     {
-        "name": "Orc",
-        "hp": 1000,
-        "damage": 25,
-        "defense": 15
+      "id": 2002,
+      "name": "Orc Warrior",
+      "description": "A powerful orc warrior.",
+      "level": 5,
+      "hp": 250,
+      "damage": 25,
+      "defense": 10,
+      "experienceReward": 120,
+      "goldReward": 75,
+      "dropTable": [
+        {
+          "itemId": 1005,
+          "dropChance": 0.65
+        },
+        {
+          "itemId": 1003,
+          "dropChance": 0.15
+        },
+        {
+          "itemId": 1004,
+          "dropChance": "chuj"
+        }
+      ]
     }
-]
+  ]
+}
