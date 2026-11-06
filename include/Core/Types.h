@@ -1,14 +1,17 @@
-#include <cstdint>
 #pragma once
+#include <cstdint>
+#include <iostream>
 
 class ItemId
 {
 private:
-    std::uint32_t itemId = 0;
+    int itemId = 0;
 
 public:
-    explicit ItemId(std::uint32_t itemId) : itemId(itemId) {};
-    std::uint32_t getItemId() const
+    explicit ItemId(int itemId) : itemId(itemId) {
+        if (itemId <1) {throw std::invalid_argument("Niepoprawne itemId!\n");}
+    };
+    int getItemId() const
     {
         return itemId;
     }
@@ -25,11 +28,13 @@ public:
 class InstanceId
 {
 private:
-    std::uint32_t instanceId = 0;
+    int instanceId = 0;
 
 public:
-    explicit InstanceId(std::uint32_t instanceId) : instanceId(instanceId) {};
-    std::uint32_t getInstanceId() const
+    explicit InstanceId(int instanceId) : instanceId(instanceId) {
+        if (instanceId <1) {throw std::invalid_argument("Niepoprawne itemId!\n");}
+    };
+    int getInstanceId() const
     {
         return instanceId;
     }
@@ -45,11 +50,13 @@ public:
 class CharacterId
 {
 private:
-    std::uint32_t characterId = 0;
+    int characterId = 0;
 
 public:
-    explicit CharacterId(std::uint32_t characterId) : characterId(characterId) {};
-    std::uint32_t getCharacterId() const
+    explicit CharacterId(int characterId) : characterId(characterId) {
+        if (characterId <1) {throw std::invalid_argument("Niepoprawne itemId!\n");}
+    };
+    int getCharacterId() const
     {
         return characterId;
     }
@@ -65,11 +72,13 @@ public:
 class MonsterId
 {
 private:
-    std::uint32_t monsterId = 0;
+    int monsterId = 0;
 
 public:
-    explicit MonsterId(std::uint32_t monsterId) : monsterId(monsterId) {};
-    std::uint32_t getMonsterId() const
+    explicit MonsterId(int monsterId) : monsterId(monsterId) {
+        if (monsterId <1) {throw std::invalid_argument("Niepoprawne itemId!\n");}
+    };
+    int getMonsterId() const
     {
         return monsterId;
     }
