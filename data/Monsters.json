@@ -42,7 +42,7 @@
         },
         {
           "itemId": 1004,
-          "dropChance": "chuj"
+          "dropChance": 0.10
         }
       ]
     }
