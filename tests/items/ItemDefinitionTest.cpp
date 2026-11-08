@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Items/ItemDefinition.h"
+#include "items/ItemDefinition.h"
 
 TEST(ItemDefinitionTest, Constructortest)
 {

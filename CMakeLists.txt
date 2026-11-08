@@ -31,8 +31,8 @@ add_executable(NiroTests
     # tests/InventoryTests.cpp
     tests/core/TypesTests.cpp
     tests/items/ItemDefinitionTest.cpp
-    include/Core/Types.h
-    src/Items/ItemDefinition.cpp
+    include/core/Types.h
+    src/items/ItemDefinition.cpp
     # src/Items.cpp
     # src/Inventory.cpp
     # src/Character.cpp

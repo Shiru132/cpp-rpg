@@ -1,5 +1,4 @@
 #pragma once
-#include <cstdint>
 #include <iostream>
 
 class ItemId
@@ -32,7 +31,7 @@ private:
 
 public:
     explicit InstanceId(int instanceId) : instanceId(instanceId) {
-        if (instanceId <1) {throw std::invalid_argument("Niepoprawne itemId!\n");}
+        if (instanceId <1) {throw std::invalid_argument("Niepoprawne instanceId!\n");}
     };
     int getInstanceId() const
     {
@@ -54,7 +53,7 @@ private:
 
 public:
     explicit CharacterId(int characterId) : characterId(characterId) {
-        if (characterId <1) {throw std::invalid_argument("Niepoprawne itemId!\n");}
+        if (characterId <1) {throw std::invalid_argument("Niepoprawne characterId!\n");}
     };
     int getCharacterId() const
     {
@@ -76,7 +75,7 @@ private:
 
 public:
     explicit MonsterId(int monsterId) : monsterId(monsterId) {
-        if (monsterId <1) {throw std::invalid_argument("Niepoprawne itemId!\n");}
+        if (monsterId <1) {throw std::invalid_argument("Niepoprawne monsterId!\n");}
     };
     int getMonsterId() const
     {

@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Core/Types.h"
+#include "core/Types.h"
 
 TEST(TypesTest, ItemIdTest)
 {

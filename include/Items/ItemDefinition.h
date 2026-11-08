@@ -1,7 +1,8 @@
 #pragma once
-#include <cstdint>
+
 #include <string>
-#include "Core/Types.h"
+#include "core/Types.h"
+
 
 enum class ItemType
 {
