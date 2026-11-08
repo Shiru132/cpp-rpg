@@ -27,7 +27,7 @@ private:
     int value;
     // value mamy na kiedyś do systemu sklepów teraz po prostu sobie jest
 public:
-    ItemDefinition(const ItemId &itemId, const std::string &name, const std::string &description, ItemType type, int damage, int defense, int hp, bool stackable, int value) : itemId(itemId), name(name), description(description), type(type), damage(damage), defense(defense), hp(hp), stackable(stackable), value(value) {};
+    ItemDefinition(const ItemId &itemId, const std::string &name, const std::string &description, ItemType type, int damage, int defense, int hp, bool stackable, int value);
     // pierwszy const po to żeby nie można było modyfikować przez refa a drugi po to żeby nie można było modyfikować przez metode czyli w {}
     const ItemId &getItemId() const { return this->itemId; }
     // const & żeby nie kopiowało tego bo przy dużej ilośći niepotrzebnie marnujemy pamięć
