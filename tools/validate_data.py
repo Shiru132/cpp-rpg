@@ -32,7 +32,10 @@ def validate_classes():
             if "id" not in each:
                 print(f"Błąd w (ID: {klasa_id}): Brak pola 'id'")
                 result = False
-            elif isinstance(each.get("id"), bool) or isinstance(each.get("id"), int) and each["id"] <= 0:
+            elif not isinstance(each.get("id"), int):
+                print(f"Nieprawidłowe ID ({each['id']}) | oczekiwano int")
+                result = False
+            elif isinstance(each.get("id"), bool) or each["id"] <= 0:
                 print(f"Nieprawidłowe ID ({each['id']}) | oczekiwano int > 0")
                 result = False
             elif each["id"] in found_ids:
@@ -66,10 +69,10 @@ def validate_classes():
                     for stat in classes_int:
                         val = section.get(stat)
                         if isinstance(val, bool) or val is None or not isinstance(val, int):
-                            print(f"Błąd w (ID: {klasa_id}) -> '{field_dict_int}': Niepoprawna wartość '{stat}' ({val}) | oczekiwano int")
+                            print(f"Błąd w (ID: {klasa_id}): {field_dict_int}[{stat}] | oczekiwano int")
                             result = False
                         elif val < 0:
-                            print(f"Błąd w (ID: {klasa_id}) -> '{field_dict_int}': Ujemna wartość '{stat}' ({val})")
+                            print(f"Błąd w (ID: {klasa_id}): {field_dict_int}[{stat}] | oczekiwano int > 0 ")
                             result = False
 
     if result:
@@ -85,7 +88,7 @@ def validate_items():
             return
         
         items_str = ["name", "description", "type"]
-        items_int = ["id", "maxStack", "damage", "defense", "value", "healAmount"]
+        items_int = ["maxStack", "damage", "defense", "value", "healAmount"]
         found_ids = set()
 
         for each in object["items"]:
@@ -95,7 +98,10 @@ def validate_items():
             if "id" not in each:
                 print(f"Błąd w (ID: {item_id}): Brak pola 'id'")
                 result = False
-            elif isinstance(each.get("id"), bool) or isinstance(each.get("id"), int) and each["id"] <= 0:
+            elif not isinstance(each.get("id"), int):
+                print(f"Nieprawidłowe ID ({each['id']}) | oczekiwano int")
+                result = False
+            elif isinstance(each.get("id"), bool) or each["id"] <= 0:
                 print(f"Nieprawidłowe ID ({each['id']}) | oczekiwano int > 0")
                 result = False
             elif each["id"] in found_ids:
@@ -109,16 +115,16 @@ def validate_items():
                 print(f"Błąd w (ID: {item_id}): Brak pola 'stackable'")
                 result = False
             elif not isinstance(each.get("stackable"), bool):
-                print(f"Błąd w (ID: {item_id}): 'stackable' powinien być typu bool")
+                print(f"Błąd w (ID: {item_id}): 'stackable' | oczekiwano bool")
                 result = False 
 
             #### CHECKER FOR STRING FIELDS
             for field_str in items_str:
                 if field_str not in each or not each[field_str]:
-                    print(f"Błąd w (ID: {item_id}): Brak lub puste pole field_str '{field_str}'")
+                    print(f"Błąd w (ID: {item_id}): '{field_str}' | oczekiwano niepustego stringa")
                     result = False
                 elif not isinstance(each[field_str], str):
-                    print(f"Błąd w (ID: {item_id}): {field_str} powinien być typu string")
+                    print(f"Błąd w (ID: {item_id}): {field_str} | oczekiwano string")
                     result = False
 
             #### CHECKER FOR INT FIELDS
@@ -134,10 +140,10 @@ def validate_items():
                         print(f"Błąd w (ID: {item_id}): Brak pola '{field_int}'")
                         result = False
                     elif isinstance(each[field_int], bool) or not isinstance(each[field_int], int):
-                        print(f"Błąd w (ID: {item_id}): {field_int} powinien być typu int")
+                        print(f"Błąd w (ID: {item_id}): {field_int} | oczekiwano int")
                         result = False
                     elif each[field_int] < 0:
-                        print(f"Błąd w (ID: {item_id}): {field_int} powinien być większy lub równy 0")
+                        print(f"Błąd w (ID: {item_id}): {field_int} | oczekiwano int > 0")
                         result = False
             except KeyError:
                 continue
@@ -165,7 +171,10 @@ def validate_monsters():
             if "id" not in each:
                 print(f"Błąd w (ID: {monster_id}): Brak pola 'id'")
                 result = False
-            elif isinstance(each.get("id"), bool) or isinstance(each.get("id"), int) and each["id"] <= 0:
+            elif not isinstance(each.get("id"), int):
+                print(f"Nieprawidłowe ID ({each['id']}) | oczekiwano int")
+                result = False
+            elif isinstance(each.get("id"), bool) or each["id"] <= 0:
                 print(f"Nieprawidłowe ID ({each['id']}) | oczekiwano int > 0")
                 result = False
             elif each["id"] in found_ids:
@@ -177,7 +186,7 @@ def validate_monsters():
             #### CHECKER FOR STRING FIELDS
             for field_str in monster_str:
                 if field_str not in each:
-                    print(f"Błąd w (ID: {monster_id}): Brak '{field_str}'")
+                    print(f"Błąd w (ID: {monster_id}): Brak pola '{field_str}'")
                     result = False
                 elif not isinstance(each[field_str], str) or not each[field_str]:
                     print(f"Błąd w (ID: {monster_id}): {field_str} | oczekiwano niepustego stringa")
@@ -188,7 +197,10 @@ def validate_monsters():
                 if field_int not in each:
                     print(f"Błąd w (ID: {monster_id}): Brak pola '{field_int}'")
                     result = False
-                elif isinstance(each[field_int], bool) or not isinstance(each[field_int], int) and each[field_int] < 0:
+                elif isinstance(each[field_int], bool) or not isinstance(each[field_int], int):
+                    print(f"Błąd w (ID: {monster_id}): {field_int} | oczekiwano int")
+                    result = False
+                elif isinstance(each[field_int], int) and each[field_int] < 0:
                     print(f"Błąd w (ID: {monster_id}): {field_int} | oczekiwano int >= 0")
                     result = False
 
@@ -201,11 +213,19 @@ def validate_monsters():
                     result = False
                 else:
                     for drop_item in drop_table:
-                        item_id = drop_item.get("itemId")
-                        if isinstance(item_id, bool) or item_id is None or not isinstance(item_id, int) and item_id < 0:
-                            print(f"Błąd w (ID: {monster_id}): dropTable[itemId] | oczekiwano int > 0")
+                        if not isinstance(drop_item, dict):
+                            print(f"Błąd w (ID: {monster_id}): 'dropTable' | oczekiwano słownik")
                             result = False
-                            
+                            continue 
+                        item_id = drop_item.get("itemId")
+                        if item_id is not None and isinstance(item_id, int) and not isinstance(item_id, bool):
+                            if item_id < 0:
+                                print(f"Błąd w (ID: {monster_id}): dropTable[itemId] | oczekiwano int > 0")
+                                result = False
+                        else:
+                            print(f"Błąd w (ID: {monster_id}): dropTable[itemId] | oczekiwano int ")
+                            result = False
+
                         chance = drop_item.get("dropChance")
                         if chance is None:
                             print(f"Błąd w (ID: {monster_id}): Brak pola 'dropTable[dropChance]'")
