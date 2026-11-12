@@ -26,9 +26,10 @@ private:
     int hp;
     bool stackable;
     int value;
+    int maxStack;
     // value mamy na kiedyś do systemu sklepów teraz po prostu sobie jest
 public:
-    ItemDefinition(const ItemId &itemId, const std::string &name, const std::string &description, ItemType type, int damage, int defense, int hp, bool stackable, int value);
+    explicit ItemDefinition(const ItemId &itemId, const std::string &name, const std::string &description, ItemType type, int damage, int defense, int hp, bool stackable, int value, int maxStack);
     // pierwszy const po to żeby nie można było modyfikować przez refa a drugi po to żeby nie można było modyfikować przez metode czyli w {}
     const ItemId &getItemId() const { return this->itemId; }
     // const & żeby nie kopiowało tego bo przy dużej ilośći niepotrzebnie marnujemy pamięć
@@ -40,4 +41,5 @@ public:
     int getDefense() const { return this->defense; }
     bool isStackable() const { return this->stackable; }
     int getValue() const { return this->value; }
+    int getMaxStack() const { return this->maxStack; }
 };

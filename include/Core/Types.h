@@ -1,6 +1,6 @@
 #pragma once
-#include <iostream>
-
+#include <stdexcept>
+// id nadaję w jsonie
 class ItemId
 {
 private:
@@ -23,7 +23,7 @@ public:
         return itemId != other.itemId;
     }
 };
-
+// id nadaję w trakcie działania programu
 class InstanceId
 {
 private:
@@ -46,6 +46,7 @@ public:
         return instanceId != other.instanceId;
     }
 };
+// id nadaję w trakcie działania programu
 class CharacterId
 {
 private:
@@ -68,6 +69,7 @@ public:
         return characterId != other.characterId;
     }
 };
+// id nadaję w jsonie
 class MonsterId
 {
 private:

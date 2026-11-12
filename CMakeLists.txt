@@ -1,41 +1,64 @@
+
 cmake_minimum_required(VERSION 3.16)
-set(CMAKE_CXX_STANDARD 17)
+
 project(Niro LANGUAGES CXX)
-add_executable(Niro
-    main.cpp
-    src/Character.cpp
-    src/MonsterDatabase.cpp
-    src/Monster.cpp
-    src/CombatSystem.cpp
-    src/Items.cpp
-    src/Archer.cpp
-    src/Mage.cpp
-    src/Warrior.cpp
-    src/Inventory.cpp
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
-
-)
-
-target_include_directories(Niro PRIVATE include)
-
+# GoogleTest
 include(FetchContent)
+
 FetchContent_Declare(
     GoogleTest
     GIT_REPOSITORY https://github.com/google/googletest
     GIT_TAG v1.18.0
 )
+
 FetchContent_MakeAvailable(GoogleTest)
+
+# Core library
+add_library(NiroCore
+    src/core/IdGenerator.cpp
+    
+    src/items/ItemDefinition.cpp
+)
+
+target_include_directories(NiroCore PUBLIC include)
+
+# Main application
+add_executable(Niro
+    main.cpp
+)
+
+target_link_libraries(Niro PRIVATE NiroCore)
+
+# Unit tests
 add_executable(NiroTests
-    # tests/ItemsTests.cpp
-    # tests/InventoryTests.cpp
     tests/core/TypesTests.cpp
     tests/items/ItemDefinitionTest.cpp
-    include/core/Types.h
-    src/items/ItemDefinition.cpp
-    # src/Items.cpp
-    # src/Inventory.cpp
-    # src/Character.cpp
 )
-target_include_directories(NiroTests PRIVATE include)
-target_link_libraries(NiroTests gtest_main)
+
+target_link_libraries(NiroTests
+    PRIVATE
+        NiroCore
+        GTest::gtest_main
+)
+
+# Warnings
+if(MSVC)
+    target_compile_options(NiroCore PRIVATE /W4)
+    target_compile_options(Niro PRIVATE /W4)
+    target_compile_options(NiroTests PRIVATE /W4)
+else()
+    target_compile_options(NiroCore PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(Niro PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(NiroTests PRIVATE -Wall -Wextra -Wpedantic)
+endif()
+
+# Testing
+enable_testing()
+
+include(GoogleTest)
+gtest_discover_tests(NiroTests)
