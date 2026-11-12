@@ -21,7 +21,7 @@ FetchContent_MakeAvailable(GoogleTest)
 # Core library
 add_library(NiroCore
     src/core/IdGenerator.cpp
-    
+    src/items/ItemInstance.cpp
     src/items/ItemDefinition.cpp
 )
 

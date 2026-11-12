@@ -44,6 +44,7 @@
 #include "core/IdGenerator.h"
 #include "items/ItemDefinition.h"
 #include "items/ItemInstance.h"
+#include "core/Types.h"
 
 #include <iostream>
 
@@ -51,19 +52,21 @@ int main()
 {
 
     IdGenerator &generator = IdGenerator::getInstance();
-    std::cout << "Character: " << generator.generateCharacterId() << std::endl;
-    std::cout << "instance: " << generator.generateInstanceId() << std::endl;
-    std::cout << "instance: " << generator.generateInstanceId() << std::endl;
-    std::cout << "instance: " << generator.generateInstanceId() << std::endl;
-    std::cout << "instance: " << generator.generateInstanceId() << std::endl;
-    IdGenerator &generator2 = IdGenerator::getInstance();
-    std::cout << "Character: " << generator2.generateCharacterId() << std::endl;
-    std::cout << "instance: " << generator2.generateInstanceId() << std::endl;
-    std::cout << "instance: " << generator2.generateInstanceId() << std::endl;
-    std::cout << "instance: " << generator2.generateInstanceId() << std::endl;
-    std::cout << "instance: " << generator2.generateInstanceId() << std::endl;
-    
-    
+    ItemId itemId(1);
+    InstanceId instanceId(generator.generateInstanceId());
+
+    ItemDefinition itemDefinition(itemId, "zelazny miecz", "jakis tam mieczyk", ItemType::Weapon, 100, 50, 0, false, 1000, 1);
+    ItemInstance itemInstance(&instanceId, &itemId, &itemDefinition, 2, 20);
+    std::cout << itemInstance.getBonusDamage() << std::endl;
+    std::cout << itemInstance.getUpgradeLvl() << std::endl;
+    std::cout << itemDefinition.getDamage() << std::endl;
+    std::cout << itemDefinition.getDefense() << std::endl;
+    std::cout << itemDefinition.getDescription() << std::endl;
+    std::cout << itemDefinition.getHp() << std::endl;
+    std::cout << itemDefinition.getMaxStack() << std::endl;
+    std::cout << itemDefinition.getName() << std::endl;
+    std::cout << itemDefinition.getValue() << std::endl;
+    std::cout << itemDefinition.isStackable() << std::endl;
 
     return 0;
 }
