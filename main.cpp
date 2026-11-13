@@ -50,13 +50,13 @@
 
 int main()
 {
-
+    // main to aktualnie pole bojowe
     IdGenerator &generator = IdGenerator::getInstance();
     ItemId itemId(1);
     InstanceId instanceId(generator.generateInstanceId());
 
     ItemDefinition itemDefinition(itemId, "zelazny miecz", "jakis tam mieczyk", ItemType::Weapon, 100, 50, 0, false, 1000, 1);
-    ItemInstance itemInstance(&instanceId, &itemId, &itemDefinition, 2, 20);
+    ItemInstance itemInstance(instanceId, itemId, 2, 20,1);
     std::cout << itemInstance.getBonusDamage() << std::endl;
     std::cout << itemInstance.getUpgradeLvl() << std::endl;
     std::cout << itemDefinition.getDamage() << std::endl;
