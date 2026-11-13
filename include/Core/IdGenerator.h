@@ -42,7 +42,7 @@ public:
         {
             throw std::out_of_range("out of range\n");
         }
-        else if (instanceGeneratedId >= INT_MAX)
+        else if (characterGeneratedId >= INT_MAX)
         {
             throw std::overflow_error("overflow_error\n");
         }
