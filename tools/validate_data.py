@@ -88,7 +88,7 @@ def validate_items():
             return
         
         items_str = ["name", "description", "type"]
-        items_int = ["maxStack", "damage", "defense", "value", "healAmount"]
+        items_int = ["damage", "defense", "hp", "value", "maxStack"]
         found_ids = set()
 
         for each in object["items"]:
@@ -130,12 +130,6 @@ def validate_items():
             #### CHECKER FOR INT FIELDS
             try: 
                 for field_int in items_int:
-                    if each["type"] == "Consumable" and field_int in ["damage", "defense"]:
-                        continue
-
-                    if each["type"] != "Consumable" and field_int in ["healAmount"]:
-                        continue
-
                     if field_int not in each:
                         print(f"Błąd w (ID: {item_id}): Brak pola '{field_int}'")
                         result = False
