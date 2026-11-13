@@ -5,54 +5,60 @@
       "name": "Iron Sword",
       "description": "A basic iron sword.",
       "type": "Weapon",
-      "stackable": false,
-      "maxStack": 1,
       "damage": 15,
       "defense": 0,
-      "value": 100
+      "hp": 0,
+      "stackable": false,
+      "value": 100,
+      "maxStack": 1
     },
     {
       "id": 1002,
       "name": "Iron Helmet",
       "description": "A sturdy iron helmet.",
       "type": "Helmet",
-      "stackable": false,
-      "maxStack": 1,
       "damage": 0,
       "defense": 5,
-      "value": 75
+      "hp": 0,
+      "stackable": false,
+      "value": 75,
+      "maxStack": 1
     },
     {
       "id": 1003,
       "name": "Leather Armor",
       "description": "Light leather body armor.",
       "type": "Armor",
-      "stackable": false,
-      "maxStack": 1,
       "damage": 0,
       "defense": 10,
-      "value": 120
+      "hp": 0,
+      "stackable": false,
+      "value": 120,
+      "maxStack": 1
     },
     {
       "id": 1004,
       "name": "Wooden Shield",
       "description": "A simple wooden shield.",
       "type": "Shield",
-      "stackable": false,
-      "maxStack": 1,
       "damage": 0,
       "defense": 7,
-      "value": 60
+      "hp": 0,                  
+      "stackable": false,
+      "value": 60,
+      "maxStack": 1
     },
     {
       "id": 1005,
       "name": "Health Potion",
       "description": "Restores 50 HP.",
-      "type": "Consumable",
+      "type": "Potion",
+      "damage": 0,
+      "defense": 7,
+      "hp": 50,
       "stackable": true,
-      "maxStack": 20,
-      "healAmount": 50,
-      "value": 25
+      "value": 25,
+      "maxStack": 20
     }
   ]
 }
