@@ -38,6 +38,7 @@ target_link_libraries(Niro PRIVATE NiroCore)
 add_executable(NiroTests
     tests/core/TypesTests.cpp
     tests/items/ItemDefinitionTest.cpp
+    tests/items/ItemInstanceTest.cpp
 )
 
 target_link_libraries(NiroTests
