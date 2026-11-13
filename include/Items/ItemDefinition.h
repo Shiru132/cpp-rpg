@@ -2,17 +2,9 @@
 
 #include <string>
 #include "core/Types.h"
+#include "items/ItemTypes.h"
 
 
-enum class ItemType
-{
-    Weapon,
-    Helmet,
-    Shield,
-    Armor,
-    Potion,
-    Neutral,
-};
 
 class ItemDefinition
 {
@@ -29,7 +21,7 @@ private:
     int maxStack;
     // value mamy na kiedyś do systemu sklepów teraz po prostu sobie jest
 public:
-    explicit ItemDefinition(const ItemId &itemId, const std::string &name, const std::string &description, ItemType type, int damage, int defense, int hp, bool stackable, int value, int maxStack);
+    explicit ItemDefinition(const ItemId itemId, const std::string &name, const std::string &description, ItemType type, int damage, int defense, int hp, bool stackable, int value, int maxStack);
     // pierwszy const po to żeby nie można było modyfikować przez refa a drugi po to żeby nie można było modyfikować przez metode czyli w {}
     const ItemId &getItemId() const { return this->itemId; }
     // const & żeby nie kopiowało tego bo przy dużej ilośći niepotrzebnie marnujemy pamięć

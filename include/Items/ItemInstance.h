@@ -1,19 +1,19 @@
 #pragma once
-#include "items/ItemDefinition.h"
+#include "core/Types.h"
 
 class ItemInstance
 {
 private:
-    const InstanceId *instanceId;
-    const ItemId *itemId;
-    const ItemDefinition *itemDefinition;
+    InstanceId instanceId;
+    ItemId itemId;
     int upgradeLvl;
     int bonusDamage;
-
+    int quantity;
 public:
-    explicit ItemInstance(InstanceId *instanceId, ItemId *itemId, const ItemDefinition *itemDefinition, int upgradeLvl, int bonusDamage);
+    explicit ItemInstance(InstanceId instanceId, ItemId itemId, int upgradeLvl, int bonusDamage,int quantity);
     int getUpgradeLvl() const { return upgradeLvl; }
     int getBonusDamage() const { return bonusDamage; }
-    const InstanceId *getInstanceId() const { return this->instanceId; }
-   
+    int getQuantity()const {return quantity;}
+    InstanceId getInstanceId() const { return this->instanceId; }
+    ItemId getItemId() const {return this->itemId;}
 };
