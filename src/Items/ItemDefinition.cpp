@@ -6,6 +6,6 @@ ItemDefinition::ItemDefinition(const ItemId itemId, const std::string &name, con
       throw std::invalid_argument("zly argument w ItemDefiniton!");
     }
     if (stackable==false){
-      maxStack=1;
+      this->maxStack=1;
     }
  };
