@@ -27,7 +27,7 @@ public:
         {
             throw std::out_of_range("out of range\n");
         }
-        else if (instanceGeneratedId >= INT_MAX)
+        if (instanceGeneratedId >= INT_MAX)
         {
             throw std::overflow_error("overflow_error\n");
         }
@@ -38,11 +38,11 @@ public:
     }
     int generateCharacterId()
     {
-        if (characterGeneratedId < 1 || characterGeneratedId >= INT_MAX)
+        if (characterGeneratedId < 1)
         {
             throw std::out_of_range("out of range\n");
         }
-        else if (characterGeneratedId >= INT_MAX)
+        if (characterGeneratedId >= INT_MAX)
         {
             throw std::overflow_error("overflow_error\n");
         }

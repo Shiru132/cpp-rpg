@@ -42,7 +42,7 @@
       "description": "A simple wooden shield.",
       "type": "Shield",
       "damage": 0,
-      "defense": 7,
+      "defense": 700,
       "hp": 0,                  
       "stackable": false,
       "value": 60,

@@ -11,6 +11,14 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 include(FetchContent)
 
 FetchContent_Declare(
+    nlohmann_json
+    GIT_REPOSITORY https://github.com/nlohmann/json.git
+    GIT_TAG v3.12.0
+)
+
+FetchContent_MakeAvailable(nlohmann_json)
+
+FetchContent_Declare(
     GoogleTest
     GIT_REPOSITORY https://github.com/google/googletest
     GIT_TAG v1.18.0
@@ -23,16 +31,24 @@ add_library(NiroCore
     src/core/IdGenerator.cpp
     src/items/ItemInstance.cpp
     src/items/ItemDefinition.cpp
+    src/items/ItemLoader.cpp
 )
 
 target_include_directories(NiroCore PUBLIC include)
+target_link_libraries(NiroCore
+    PUBLIC
+        nlohmann_json::nlohmann_json
+)
 
 # Main application
 add_executable(Niro
     main.cpp
 )
-
-target_link_libraries(Niro PRIVATE NiroCore)
+target_link_libraries(Niro
+    PRIVATE
+        NiroCore
+        nlohmann_json::nlohmann_json
+)
 
 # Unit tests
 add_executable(NiroTests
@@ -45,6 +61,8 @@ target_link_libraries(NiroTests
     PRIVATE
         NiroCore
         GTest::gtest_main
+    PUBLIC
+    nlohmann_json::nlohmann_json
 )
 
 # Warnings

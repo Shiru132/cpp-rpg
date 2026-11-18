@@ -45,28 +45,32 @@
 #include "items/ItemDefinition.h"
 #include "items/ItemInstance.h"
 #include "core/Types.h"
+#include "items/ItemLoader.h"
+#include <string>
 
 #include <iostream>
 
 int main()
 {
-    // main to aktualnie pole bojowe
-    IdGenerator &generator = IdGenerator::getInstance();
-    ItemId itemId(1);
-    InstanceId instanceId(generator.generateInstanceId());
+    const std::string path = "data/Items.json";
+    ItemLoader itemLoader;
+    
+    auto items = itemLoader.loadFromFile(path);
+ 
 
-    ItemDefinition itemDefinition(itemId, "zelazny miecz", "jakis tam mieczyk", ItemType::Weapon, 100, 50, 0, false, 1000, 1);
-    ItemInstance itemInstance(instanceId, itemId, 2, 20,1);
-    std::cout << itemInstance.getBonusDamage() << std::endl;
-    std::cout << itemInstance.getUpgradeLvl() << std::endl;
-    std::cout << itemDefinition.getDamage() << std::endl;
-    std::cout << itemDefinition.getDefense() << std::endl;
-    std::cout << itemDefinition.getDescription() << std::endl;
-    std::cout << itemDefinition.getHp() << std::endl;
-    std::cout << itemDefinition.getMaxStack() << std::endl;
-    std::cout << itemDefinition.getName() << std::endl;
-    std::cout << itemDefinition.getValue() << std::endl;
-    std::cout << itemDefinition.isStackable() << std::endl;
+    for (const auto& item : items){
+        std::cout << "Utworzona definicja: \n";
+        std::cout << "Item ID: " << item.getItemId().getItemId() << '\n';
+        std::cout << "Name: " << item.getName() << std::endl;
+        std::cout << "desc: " << item.getDescription() << std::endl;
+        std::cout << "damage: " << item.getDamage() << std::endl;
+        std::cout << "defense: " << item.getDefense() << std::endl;
+        std::cout << "hp: " << item.getHp() << std::endl;
+        std::cout << "stackable: " << item.isStackable() << std::endl;
+        std::cout << "value: " << item.getValue() << std::endl;
+        std::cout << "maxstack: " << item.getMaxStack() << std::endl;
+    }
+    std::cout<< "ilosc przedmiotow: "<<items.size()<<std::endl;
 
     return 0;
 }
