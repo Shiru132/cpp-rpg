@@ -26,6 +26,14 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(GoogleTest)
 
+FetchContent_Declare(SFML
+    GIT_REPOSITORY https://github.com/SFML/SFML.git
+    GIT_TAG 3.1.0
+    GIT_SHALLOW ON
+    EXCLUDE_FROM_ALL
+    SYSTEM)
+FetchContent_MakeAvailable(SFML)
+
 # Core library
 add_library(NiroCore
     src/core/IdGenerator.cpp
@@ -64,15 +72,27 @@ target_link_libraries(NiroTests
     PUBLIC
     nlohmann_json::nlohmann_json
 )
+# SFML
+add_executable(NiroClient
+    apps/client/main.cpp
+)
+target_compile_features(NiroClient PRIVATE cxx_std_17)
+target_link_libraries(NiroClient 
+    PRIVATE 
+        NiroCore
+        SFML::Graphics
+)
 
 # Warnings
 if(MSVC)
     target_compile_options(NiroCore PRIVATE /W4)
     target_compile_options(Niro PRIVATE /W4)
+    target_compile_options(NiroClient PRIVATE /W4)
     target_compile_options(NiroTests PRIVATE /W4)
 else()
     target_compile_options(NiroCore PRIVATE -Wall -Wextra -Wpedantic)
     target_compile_options(Niro PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(NiroClient PRIVATE -Wall -Wextra -Wpedantic)
     target_compile_options(NiroTests PRIVATE -Wall -Wextra -Wpedantic)
 endif()
 
