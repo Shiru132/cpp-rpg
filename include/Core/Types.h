@@ -1,5 +1,6 @@
 #pragma once
 #include <stdexcept>
+#include <functional>
 // id nadaję w jsonie
 class ItemId
 {
@@ -7,8 +8,12 @@ private:
     int itemId = 0;
 
 public:
-    explicit ItemId(int itemId) : itemId(itemId) {
-        if (itemId <1) {throw std::invalid_argument("Niepoprawne itemId!\n");}
+    explicit ItemId(int itemId) : itemId(itemId)
+    {
+        if (itemId < 1)
+        {
+            throw std::invalid_argument("Niepoprawne itemId!\n");
+        }
     };
     int getItemId() const
     {
@@ -23,6 +28,15 @@ public:
         return itemId != other.itemId;
     }
 };
+struct ItemIdHash
+{
+    std::size_t operator()(const ItemId& itemId) const
+    {
+      std::hash<int> hasher;
+      std::size_t hashResult = hasher(itemId.getItemId());
+      return hashResult;
+    }
+};
 // id nadaję w trakcie działania programu
 class InstanceId
 {
@@ -30,8 +44,12 @@ private:
     int instanceId = 0;
 
 public:
-    explicit InstanceId(int instanceId) : instanceId(instanceId) {
-        if (instanceId <1) {throw std::invalid_argument("Niepoprawne instanceId!\n");}
+    explicit InstanceId(int instanceId) : instanceId(instanceId)
+    {
+        if (instanceId < 1)
+        {
+            throw std::invalid_argument("Niepoprawne instanceId!\n");
+        }
     };
     int getInstanceId() const
     {
@@ -53,8 +71,12 @@ private:
     int characterId = 0;
 
 public:
-    explicit CharacterId(int characterId) : characterId(characterId) {
-        if (characterId <1) {throw std::invalid_argument("Niepoprawne characterId!\n");}
+    explicit CharacterId(int characterId) : characterId(characterId)
+    {
+        if (characterId < 1)
+        {
+            throw std::invalid_argument("Niepoprawne characterId!\n");
+        }
     };
     int getCharacterId() const
     {
@@ -76,8 +98,12 @@ private:
     int monsterId = 0;
 
 public:
-    explicit MonsterId(int monsterId) : monsterId(monsterId) {
-        if (monsterId <1) {throw std::invalid_argument("Niepoprawne monsterId!\n");}
+    explicit MonsterId(int monsterId) : monsterId(monsterId)
+    {
+        if (monsterId < 1)
+        {
+            throw std::invalid_argument("Niepoprawne monsterId!\n");
+        }
     };
     int getMonsterId() const
     {

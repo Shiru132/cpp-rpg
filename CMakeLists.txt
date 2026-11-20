@@ -40,6 +40,7 @@ add_library(NiroCore
     src/items/ItemInstance.cpp
     src/items/ItemDefinition.cpp
     src/items/ItemLoader.cpp
+    src/items/ItemRegistry.cpp
 )
 
 target_include_directories(NiroCore PUBLIC include)

@@ -46,31 +46,33 @@
 #include "items/ItemInstance.h"
 #include "core/Types.h"
 #include "items/ItemLoader.h"
+#include "items/ItemRegistry.h"
 #include <string>
 
 #include <iostream>
 
 int main()
 {
-    const std::string path = "data/Items.json";
-    ItemLoader itemLoader;
+    std::string path = "data/items.json";
+    ItemLoader itemloader;
+    auto items = itemloader.loadFromFile(path);
+    ItemRegistry itemRegistry(items);
+    ItemId itemid(1001);
+    ItemId itemid2(1001);
+    ItemId itemid3(1002);
+    ItemId itemid4(9999);
+
+    const auto& it = itemRegistry.getItemDefiniton(itemid);
+    const auto& it2=itemRegistry.getItemDefiniton(itemid2);
+    const auto& it3 =itemRegistry.getItemDefiniton(itemid3);
+    const auto& it4 =itemRegistry.getItemDefiniton(itemid4);
+    std::cout<< it.getName()<<std::endl;
+    std::cout<< it2.getName()<<std::endl;
+    std::cout<< it3.getName()<<std::endl;
+    std::cout<< it4.getName()<<std::endl;
     
-    auto items = itemLoader.loadFromFile(path);
- 
 
-    for (const auto& item : items){
-        std::cout << "Utworzona definicja: \n";
-        std::cout << "Item ID: " << item.getItemId().getItemId() << '\n';
-        std::cout << "Name: " << item.getName() << std::endl;
-        std::cout << "desc: " << item.getDescription() << std::endl;
-        std::cout << "damage: " << item.getDamage() << std::endl;
-        std::cout << "defense: " << item.getDefense() << std::endl;
-        std::cout << "hp: " << item.getHp() << std::endl;
-        std::cout << "stackable: " << item.isStackable() << std::endl;
-        std::cout << "value: " << item.getValue() << std::endl;
-        std::cout << "maxstack: " << item.getMaxStack() << std::endl;
-    }
-    std::cout<< "ilosc przedmiotow: "<<items.size()<<std::endl;
-
+    ItemIdHash hasher;
+    
     return 0;
 }
