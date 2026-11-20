@@ -37,8 +37,8 @@ What I'm aiming for:
 ## Plan / Roadmap
 
 - [x] Pierwsza wersja: klasy postaci, walka, potwory, proste przedmioty i ekwipunek, testy / First version: character classes, combat, monsters, simple items and inventory, tests
-- [ ] Core (ID, staty, losowość)
-- [ ] Items (definicje, egzemplarze, rejestr)
+- [x] Core (ID, staty, losowość)
+- [x] Items (definicje, egzemplarze, rejestr)
 - [ ] Inventory i ekwipunek (przedmioty stackowane i unikalne)
 - [ ] Characters (staty liczone z założonych przedmiotów)
 - [ ] Combat (walka oddzielona od konsoli)
