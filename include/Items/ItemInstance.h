@@ -14,6 +14,8 @@ public:
     int getUpgradeLvl() const { return upgradeLvl; }
     int getBonusDamage() const { return bonusDamage; }
     int getQuantity()const {return quantity;}
+    void addQuantity(int amount);
+    void removeQuantity(int amount);
     InstanceId getInstanceId() const { return this->instanceId; }
     ItemId getItemId() const {return this->itemId;}
 };

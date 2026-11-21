@@ -41,6 +41,7 @@ add_library(NiroCore
     src/items/ItemDefinition.cpp
     src/items/ItemLoader.cpp
     src/items/ItemRegistry.cpp
+    src/inventory/Inventory.cpp
 )
 
 target_include_directories(NiroCore PUBLIC include)

@@ -48,6 +48,7 @@
 #include "items/ItemLoader.h"
 #include "items/ItemRegistry.h"
 #include <string>
+#include "inventory/Inventory.h"
 
 #include <iostream>
 
@@ -61,18 +62,27 @@ int main()
     ItemId itemid2(1001);
     ItemId itemid3(1002);
     ItemId itemid4(9999);
+    IdGenerator &generator = IdGenerator::getInstance();
+    InstanceId instanceId(generator.generateInstanceId());
+    ItemInstance itemInstanceConstructor() ;
+    Inventory inventory;
 
     const auto& it = itemRegistry.getItemDefiniton(itemid);
     const auto& it2=itemRegistry.getItemDefiniton(itemid2);
     const auto& it3 =itemRegistry.getItemDefiniton(itemid3);
-    const auto& it4 =itemRegistry.getItemDefiniton(itemid4);
+    
     std::cout<< it.getName()<<std::endl;
     std::cout<< it2.getName()<<std::endl;
     std::cout<< it3.getName()<<std::endl;
-    std::cout<< it4.getName()<<std::endl;
-    
+  
 
-    ItemIdHash hasher;
+    auto itemInstance = std::make_unique<ItemInstance>(instanceId,itemid2,2,20,1);
+    inventory.addItem(std::move(itemInstance), itemRegistry);
+    
+    
+   
+
+ 
     
     return 0;
 }
