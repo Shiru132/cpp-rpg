@@ -1,13 +1,19 @@
 import json
 
-def menu():
-    print("--- Walidacja ---")
-    print("1) Classes")
-    print("2) Items")
-    print("3) Monsters")
-    print("4) exit")
-    print("-----------------")
+def validate_data(name):
 
+    data_name = {
+        "Classes": validate_classes,
+        "Items": validate_items,
+        "Monsters": validate_monsters,
+    }
+
+    func = data_name.get(name.capitalize()) 
+    
+    if func:
+        func()
+    else:
+        print(f"Brak danych: {name}")
 
 def validate_classes():
 
@@ -229,29 +235,3 @@ def validate_monsters():
                             result = False
     if result:
         print("Plik monsters.json jest poprawny.")
-
-def main():
-    menu()
-    while True:
-        choice = input("Wybierz opcje: ")
-        choice = choice.strip()
-        if choice == "1":
-            validate_classes()
-            menu()  
-        elif choice == "2":
-            validate_items()
-            menu()
-
-        elif choice == "3":
-            validate_monsters()
-            menu()
-        
-        elif choice == "4":
-            print("Adios!")
-            break
-        else:
-            print("Nieprawidłowa opcja. Spróbuj ponownie.")   
-            menu() 
-
-if __name__ == "__main__":
-    main()
