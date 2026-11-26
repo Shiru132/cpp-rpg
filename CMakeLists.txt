@@ -65,6 +65,7 @@ add_executable(NiroTests
     tests/core/TypesTests.cpp
     tests/items/ItemDefinitionTest.cpp
     tests/items/ItemInstanceTest.cpp
+    tests/inventory/InventoryTest.cpp
 )
 
 target_link_libraries(NiroTests
