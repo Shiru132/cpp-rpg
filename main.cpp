@@ -78,6 +78,7 @@ int main()
 
     auto itemInstance = std::make_unique<ItemInstance>(instanceId,itemid2,2,20,1);
     inventory.addItem(std::move(itemInstance), itemRegistry);
+
     
     
    

@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <stdexcept>
 #include <utility>
+#include <iostream>
 
 bool Inventory::addItem(std::unique_ptr<ItemInstance> &&item, const ItemRegistry &itemRegistry)
 {
@@ -91,6 +92,7 @@ bool Inventory::createNewStacks(std::unique_ptr<ItemInstance> &&item, const Item
     }
 
     inventory.emplace_back(std::move(item));
+
     return true;
 }
 
@@ -131,12 +133,25 @@ bool Inventory::fillExistingStacks(std::unique_ptr<ItemInstance> &&item, const I
 
         if (item->getQuantity() == 0)
         {
-    
+
             item.reset();
             return true;
         }
     }
 
-
     return false;
+}
+std::unique_ptr<ItemInstance> Inventory::takeItem(const InstanceId& instanceId)
+{
+    for (auto it = inventory.begin(); it != inventory.end(); ++it)
+    {
+        if ((*it)->getInstanceId().getInstanceId() == instanceId.getInstanceId())
+        {
+            auto newOwner = std::move(*it);
+            inventory.erase(it);
+            return newOwner;
+        }
+    }
+
+    return nullptr;
 }

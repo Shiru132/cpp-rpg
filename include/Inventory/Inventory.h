@@ -19,4 +19,5 @@ public:
     const std::vector<std::unique_ptr<ItemInstance>> &getItems() const { return inventory; }
 
     bool addItem(std::unique_ptr<ItemInstance>&&item, const ItemRegistry &itemRegistry);
+    std::unique_ptr<ItemInstance>takeItem(const InstanceId &instanceId);
 };
